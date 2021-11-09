@@ -1,16 +1,25 @@
 import Link from 'next/link'
 import Container from '../components/container'
+import tw from "tailwind-styled-components"
+import { useRouter } from "next/router";
+
+const NavLink = tw.a`
+  cursor-pointer font-normal text-gray-600 dark:text-gray-400 hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all
+`
 
 export default function Header() {
+
+  const router = useRouter();
+
   return (
     <header className="py-6">
       <Container>
-        <nav className="flex space-x-4">
+        <nav className="flex">
           <Link href="/">
-            <a>Home</a>
+            <NavLink className={router.pathname == "/" ? "font-semibold" : ""}>Home</NavLink>
           </Link>
           <Link href="/posts">
-            <a>Posts</a>
+            <NavLink className={router.pathname == "/posts" ? "font-semibold" : ""}>Posts</NavLink>
           </Link>
         </nav>
       </Container>
