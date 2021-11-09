@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Emoji from './emoji'
 
 export default function Intro() {
   return (
@@ -16,9 +17,12 @@ export default function Intro() {
           </div>
         </div>
         <div className="flex flex-col pr-8">
-          <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">Greg Hermo</h1>
+          <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-2 text-black dark:text-white">Greg Hermo</h1>
           <h2 className="text-gray-700 dark:text-gray-200 mb-4">Sr Softwar Engineer at <span className="font-semibold">ContactOut</span></h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-16">Helping developers build a cleaner and faster web. Let's craft software using Laravel PHP, React and TailwindCSS.</p>
+          <p className="text-gray-600 dark:text-gray-400 mb-16">
+            Hey there, my name is Greg and I'm a Software Engineer working at home from PH. <Emoji symbol="🇵🇭" label="PH" /> 
+            Thanks so much for dropping by and welcome to my site. <Emoji symbol="😊" label="smile" />
+          </p>
         </div>
       </div>
     </section>
