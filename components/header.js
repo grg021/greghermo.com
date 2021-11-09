@@ -21,6 +21,9 @@ export default function Header() {
           <Link href="/posts">
             <NavLink className={router.pathname == "/posts" ? "font-semibold" : ""}>Posts</NavLink>
           </Link>
+          <Link href="/about">
+            <NavLink className={router.pathname == "/about" ? "font-semibold" : ""}>About</NavLink>
+          </Link>
         </nav>
       </Container>
     </header>
