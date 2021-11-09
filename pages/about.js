@@ -1,7 +1,7 @@
 import Layout from '../components/layout'
 import Head from 'next/head'
 import Container from '../components/container'
-import { H1 } from './styled'
+import { H1 } from '../lib/styled'
 import tw from "tailwind-styled-components"
 import Emoji from '../components/emoji'
 
