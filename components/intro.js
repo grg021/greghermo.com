@@ -11,6 +11,7 @@ export default function Intro() {
             quality="100"
             objectFit="cover"
             className="rounded-full grayscale filter hover:grayscale-0"
+            alt="greg hermo"
             layout="fill" />
           </div>
         </div>
