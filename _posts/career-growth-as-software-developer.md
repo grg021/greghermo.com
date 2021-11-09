@@ -71,7 +71,7 @@ I don't think I have to be great or super good at all these techonlogies (I don'
 
 With my time and setup, I have to use it with the work that I do. And fortunately it is something I can do.
 Here are somewhat concrete ideas I have:
-- **do thorough code review** - be thorough in reading code and really put effort into making it better, cleaner more maintainable.
+- **code review (thoroughly)** - be thorough in reading code and really put effort into making it better, cleaner more maintainable.
 - **identify and build packages** (laravel or npm) - oftentimes there are specific features/capabilities a project requires which can be converted into a share-able package.
 - **read and reflect** - specifically read foundational books like clean code and design patterns. These are timeless and can be applied on any technology stack.
 - **blog or journal** - one way to reflect and re-enforce learning is to write about it. This forces you to revew and rethink things you've studied or used.
