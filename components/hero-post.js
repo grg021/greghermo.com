@@ -18,8 +18,8 @@ export default function HeroPost({
           title={title}
           src={coverImage}
           slug={slug}
-          height={620}
-          width={1240}
+          height={340}
+          width={620}
         />
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
@@ -35,7 +35,6 @@ export default function HeroPost({
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
         </div>
       </div>
     </section>

@@ -13,3 +13,6 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+ul {
+    @apply list-disc list-inside;
+}
