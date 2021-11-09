@@ -1,6 +1,6 @@
-# greg.hermo site
+# greghermo.com
 
-Built using Next.js's
+Built using Next.js
 
 The blog posts are stored in `/_posts` as Markdown files with front matter support. Adding a new Markdown file in there will create a new blog post.
 
