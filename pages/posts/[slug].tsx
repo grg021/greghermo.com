@@ -9,9 +9,13 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { SITE_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
-import { Post } from '../../lib/types'
+import {Post as PostObj} from '../../lib/types'
 
-export default function BlogPost(post: Post) {
+interface Props {
+  post: PostObj
+}
+
+export default function Post({ post }: Props) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -45,7 +49,7 @@ export default function BlogPost(post: Post) {
 }
 
 interface Params {
-  params: Post
+  params: PostObj
 }
 
 export async function getStaticProps({ params }: Params) {
@@ -57,7 +61,7 @@ export async function getStaticProps({ params }: Params) {
     'content',
     'ogImage',
     'coverImage',
-  ]) as Post
+  ]) as PostObj
   const content = await markdownToHtml(post.content || '')
 
   return {
