@@ -1,11 +1,16 @@
 import { getAllPosts } from '../../lib/api'
 import Container from '../../components/container'
 import Link from 'next/link'
-import distanceToNow from '../../lib/dateRelative'
+import distanceToNow from '../../lib/utils'
 import Layout from '../../components/layout'
 import Head from 'next/head'
+import {Post} from "../../lib/types";
 
-export default function Posts({ allPosts }) {
+interface Props {
+    allPosts: Post[];
+}
+
+export default function Posts({ allPosts }: Props) {
     return (
         <Layout>
         <Head>
@@ -32,7 +37,7 @@ export default function Posts({ allPosts }) {
       )
 }
 
-export async function getStaticProps() {
+export function getStaticProps() {
     const allPosts = getAllPosts([
         'title',
         'date',
