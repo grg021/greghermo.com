@@ -9,6 +9,15 @@ export interface Post {
     excerpt: string,
     slug: string,
     content?: string,
-    ogImage?: string,
-    author?: string,
+    ogImage?: OgImage,
+    author?: Author,
+}
+
+interface OgImage {
+    url: string;
+}
+
+interface Author {
+    name: string;
+    picture: string;
 }

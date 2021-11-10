@@ -5,8 +5,13 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
+import { Post } from '../lib/types'
 
-export default function Index({ allPosts }) {
+interface Props {
+  allPosts: Post[]
+}
+
+export default function Index({ allPosts }: Props) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
@@ -34,7 +39,7 @@ export default function Index({ allPosts }) {
   )
 }
 
-export async function getStaticProps() {
+export function getStaticProps() {
   const allPosts = getAllPosts([
     'title',
     'date',

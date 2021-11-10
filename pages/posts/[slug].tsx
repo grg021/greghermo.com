@@ -9,14 +9,15 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { SITE_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
+import { Post } from '../../lib/types'
 
-export default function Post({ post, morePosts, preview }) {
+export default function BlogPost(post: Post) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -33,7 +34,6 @@ export default function Post({ post, morePosts, preview }) {
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
-                author={post.author}
               />
               <PostBody content={post.content} />
             </article>
@@ -44,7 +44,11 @@ export default function Post({ post, morePosts, preview }) {
   )
 }
 
-export async function getStaticProps({ params }) {
+interface Params {
+  params: Post
+}
+
+export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, [
     'title',
     'date',
@@ -53,7 +57,7 @@ export async function getStaticProps({ params }) {
     'content',
     'ogImage',
     'coverImage',
-  ])
+  ]) as Post
   const content = await markdownToHtml(post.content || '')
 
   return {
@@ -66,7 +70,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   const posts = getAllPosts(['slug'])
 
   return {
