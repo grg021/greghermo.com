@@ -1,7 +1,7 @@
 import { getAllPosts } from '../../lib/api'
 import Container from '../../components/container'
 import Link from 'next/link'
-import distanceToNow from '../../lib/dateRelative'
+import distanceToNow from '../../lib/utils'
 import Layout from '../../components/layout'
 import Head from 'next/head'
 
