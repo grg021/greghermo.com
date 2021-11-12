@@ -1,0 +1,8 @@
+export { default as IcoDot } from './ico-dot'
+export { default as IcoLaravel } from './ico-laravel'
+export { default as IcoReact } from './ico-react'
+export { default as IcoJest } from './ico-jest'
+export { default as IcoPhpStorm } from './ico-php-storm'
+export { default as IcoVue } from './ico-vue'
+export { default as IcoDocker } from './ico-docker'
+export { default as IcoTailwind } from './ico-tailwind'

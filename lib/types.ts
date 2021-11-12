@@ -21,3 +21,8 @@ interface Author {
     name: string;
     picture: string;
 }
+
+export interface IconProps {
+    className?: string;
+    fill?: string;
+}
