@@ -16,3 +16,13 @@
 ul {
     @apply list-disc list-inside;
 }
+
+.code-highlight {
+    border-radius: 0.1875rem;
+    padding: 0.0625rem 0.1875rem;
+    margin: 0 -0.1875rem;
+}
+
+.bg-code-highlight {
+    background: rgba(134,239,172,.25)
+}

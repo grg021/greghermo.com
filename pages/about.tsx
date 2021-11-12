@@ -6,13 +6,13 @@ import tw from "tailwind-styled-components"
 import Emoji from '../components/emoji'
 import {IcoDot, IcoLaravel, IcoReact, IcoJest, IcoPhpStorm, IcoVue, IcoDocker, IcoTailwind} from "../components/icons";
 
-const Paragraph = tw.p`my-6`
+const Paragraph = tw.div`my-6`
 const List = tw.ul`space-y-2 mt-2`
 const ProgressBar = tw.div`
     shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center
 `
 const IconContainer = tw.div`
-  flex sm:flex-col text-center text-sm text-gray-500 items-center
+  flex sm:flex-col text-center text-base text-gray-500 items-center
 `
 
 export default function About() {
@@ -72,7 +72,7 @@ export default function About() {
           </Head>
           <Container>
               <H1>About</H1>
-              <div className="mb-8 leading-8 text-gray-600 dark:text-gray-400">
+              <div className="mb-8 leading-8 text-gray-600 dark:text-gray-400 text-lg">
                   <Paragraph>
                       Hi there! My name is Greg. If I were to introduce myself I would say I&apos;m
                       <List>
@@ -84,7 +84,7 @@ export default function About() {
                   </Paragraph>
                   <Paragraph>
                       I grew up in a small town in Sorsogon and went to school at the University of the Philippines
-                      Los Baños, graduated with a degree in BS Computer Science, 2009. <Emoji symbol="🧑‍🎓" label="graduate" />
+                      Los Baños, graduated with a degree in BS Computer Science, 2009.
                   </Paragraph>
                   <Paragraph>
                       <H2>I <Emoji symbol="❤️" label="graduate" /> coding, problem solving, optimizing, troubleshooting and debugging.</H2>
@@ -117,7 +117,7 @@ export default function About() {
                             {
                               lang.map(val => {
                                 return (
-                                  <div key={val.skill} className={'flex items-center text-sm'}>
+                                  <div key={val.skill} className={'flex items-center text-base'}>
                                     <IcoDot fill={val.color} />
                                     <span className={'mr-2'}>{ val.skill }</span>
                                     <span>{ val.percent }</span>
@@ -138,7 +138,7 @@ export default function About() {
                       </IconContainer>
                       <IconContainer>
                         <IcoTailwind className={'h-20 w-20 p-4'} />
-                        <span>tailwindcss</span>
+                        <span>Tailwindcss</span>
                       </IconContainer>
                       <IconContainer>
                         <IcoJest className={'h-20 w-20'} />
@@ -167,7 +167,7 @@ export default function About() {
                     <div className={'flex flex-col'}>
                       <span className={'font-medium text-lg'}>University of the Philippines Diliman</span>
                       <span>Masters of Science in Computer Science</span>
-                      <span className={'text-gray-400'}>2014, 25 Units with 1.21 GPA (A+)</span>
+                      <div className={'text-gray-500 italic'}>2014, 25 Units <span className={'not-italic code-highlight bg-code-highlight text-green-600'}>1.21 GPA (A+)</span></div>
                     </div>
                   </div>
                   <div className={'bg-gray-50 p-4 rounded mb-2 flex flex-col sm:flex-row'}>
@@ -177,11 +177,12 @@ export default function About() {
                     <div className={'flex flex-col'}>
                       <span className={'font-medium text-lg'}>University of the Philippines Los Baños</span>
                       <span>Bachelors of Science in Computer Science</span>
-                      <span className={'text-gray-400'}>2009</span>
+                      <span className={'text-gray-500 italic'}>2009</span>
                     </div>
                   </div>
                 </Paragraph>
               </div>
+            <div className={'text-center sm:text-right'}><em className={'text-gray-500 underline'}>Last updated - November, 2021</em></div>
           </Container>
       </Layout>
   )
