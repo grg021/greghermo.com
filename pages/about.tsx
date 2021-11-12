@@ -87,7 +87,7 @@ export default function About() {
                       Los Baños, graduated with a degree in BS Computer Science, 2009. <Emoji symbol="🧑‍🎓" label="graduate" />
                   </Paragraph>
                   <Paragraph>
-                      <H2>I <Emoji symbol="❤️" label="graduate" /> coding & problem solving <em>(debugging)</em></H2>
+                      <H2>I <Emoji symbol="❤️" label="graduate" /> coding, problem solving, optimizing, troubleshooting and debugging.</H2>
                       Currently, I&apos;m a Senior Software Engineer at ContactOut using Laravel PHP and React.
                       Some fun facts:
                       <List>
