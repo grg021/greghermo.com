@@ -8,5 +8,5 @@ module.exports = {
       grayscale: ['hover'],
     }
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }

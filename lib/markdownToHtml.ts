@@ -1,8 +1,5 @@
-import remark from 'remark'
-import html from 'remark-html'
-import {VFileCompatible} from "vfile";
+import md from 'markdown-it';
 
-export default async function markdownToHtml(markdown: VFileCompatible) {
-    const result = await remark().use(html).process(markdown)
-    return result.toString()
+export default async function markdownToHtml(markdown) {
+    return md().render(markdown);
 }

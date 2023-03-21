@@ -23,10 +23,10 @@ export default function Posts({ allPosts }: Props) {
               <Link
                 as={`/posts/${post.slug}`}
                 href="/posts/[slug]"
-                className="text-lg leading-6 font-bold">
+                className="text-lg leading-6 font-bold dark:text-white">
                 {post.title}
               </Link>
-              <p>{post.excerpt}</p>
+              <p className='dark:text-gray-400 my-2'>{post.excerpt}</p>
               <div className="text-gray-400">
                 <time>{distanceToNow(new Date(post.date))}</time>
               </div>
