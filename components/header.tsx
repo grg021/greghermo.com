@@ -15,17 +15,17 @@ export default function Header() {
     <header className="py-6">
       <Container>
         <nav className="flex">
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <NavLink className={router.pathname == "/" ? "font-semibold" : ""}>Home</NavLink>
           </Link>
-          <Link href="/posts">
+          <Link href="/posts" legacyBehavior>
             <NavLink className={router.pathname == "/posts" ? "font-semibold" : ""}>Posts</NavLink>
           </Link>
-          <Link href="/about">
+          <Link href="/about" legacyBehavior>
             <NavLink className={router.pathname == "/about" ? "font-semibold" : ""}>About</NavLink>
           </Link>
         </nav>
       </Container>
     </header>
-  )
+  );
 }
