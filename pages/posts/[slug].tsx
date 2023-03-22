@@ -8,7 +8,6 @@ import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { SITE_NAME } from '../../lib/constants'
-import md from 'markdown-it';
 import {Post as PostObj} from '../../lib/types'
 
 interface Props {
@@ -52,7 +51,7 @@ interface Params {
   params: PostObj
 }
 
-export async function getStaticProps({ params }: Params) {
+export function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, [
     'title',
     'date',
@@ -62,7 +61,7 @@ export async function getStaticProps({ params }: Params) {
     'ogImage',
     'coverImage',
   ]) as PostObj
-  const content = md().render(post.content || '')
+  const content = post.content || '';
 
   return {
     props: {
