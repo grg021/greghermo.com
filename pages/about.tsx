@@ -104,7 +104,7 @@ export default function About() {
                   <Paragraph>
                       <H2>Languages</H2>
                       <div className="relative pt-1">
-                      <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-amber-200">
+                      <div className="overflow-hidden h-2 mb-4 text-xs flex rounded-sm bg-amber-200">
                         {
                           lang.map(val => {
                             return (
@@ -160,7 +160,7 @@ export default function About() {
                   </Paragraph>
                 <Paragraph>
                   <H2>Education</H2>
-                  <div className={'bg-red-50 p-4 rounded mb-2 flex flex-col sm:flex-row'}>
+                  <div className={'bg-red-50 p-4 rounded-sm mb-2 flex flex-col sm:flex-row'}>
                     <img src={'/assets/about/up-logo.svg'}
                          alt={'UP Logo'}
                          className={'w-24 object-contain place-self-center sm:mr-4 mb-4 sm:mb-0'} />
@@ -170,7 +170,7 @@ export default function About() {
                       <div className={'text-gray-500 italic'}>2014, 25 Units <span className={'not-italic code-highlight bg-code-highlight text-green-600'}>1.21 GPA (A+)</span></div>
                     </div>
                   </div>
-                  <div className={'bg-gray-50 p-4 rounded mb-2 flex flex-col sm:flex-row'}>
+                  <div className={'bg-gray-50 p-4 rounded-sm mb-2 flex flex-col sm:flex-row'}>
                     <img src={'/assets/about/up-logo.svg'}
                          alt={'UP Logo'}
                          className={'w-24 object-contain place-self-center sm:mr-4 mb-4 sm:mb-0'} />

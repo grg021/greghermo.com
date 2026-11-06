@@ -11,8 +11,7 @@ interface Props {
 }
 
 export default function CoverImage({ title, src, slug, height, width }: Props) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-  const cname = cn('shadow-sm', {
+  const cname = cn('shadow-xs', {
       'hover:shadow-md transition-shadow duration-200': true,
   });
   const image = (
@@ -20,9 +19,10 @@ export default function CoverImage({ title, src, slug, height, width }: Props) {
       src={src}
       alt={`Cover Image for ${title}`}
       className={cname}
-      layout="responsive"
       width={width}
       height={height}
+      sizes="(max-width: 672px) 100vw, 672px"
+      style={{ width: '100%', height: 'auto' }}
     />
   )
   return (

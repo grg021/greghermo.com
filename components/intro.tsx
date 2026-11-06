@@ -9,11 +9,12 @@ export default function Intro() {
         <div className="flex items-center">
           <div className="mr-8 relative w-40 h-40">
           <Image src='/assets/img/greghermo_profilepic.JPG'
-            quality="100"
-            objectFit="cover"
-            className="rounded-full grayscale filter hover:grayscale-0"
-            alt="greg hermo"
-            layout="fill" />
+            quality={100}
+            fill
+            sizes="160px"
+            priority
+            className="rounded-full object-cover grayscale hover:grayscale-0"
+            alt="greg hermo" />
           </div>
         </div>
         <div className="flex flex-col pr-8">
