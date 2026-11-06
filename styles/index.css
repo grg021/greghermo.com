@@ -1,28 +1,16 @@
-@tailwind base;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
-/* Write your own custom base styles here */
-
-/* Start purging... */
-@tailwind components;
-/* Stop purging. */
-
-/* Write you own custom component styles here */
-
-/* Start purging... */
-@tailwind utilities;
-/* Stop purging. */
-
-/* Your own custom utilities */
 ul {
-    @apply list-disc list-inside;
+  @apply list-inside list-disc;
 }
 
 .code-highlight {
-    border-radius: 0.1875rem;
-    padding: 0.0625rem 0.1875rem;
-    margin: 0 -0.1875rem;
+  border-radius: 0.1875rem;
+  padding: 0.0625rem 0.1875rem;
+  margin: 0 -0.1875rem;
 }
 
 .bg-code-highlight {
-    background: rgba(134,239,172,.25)
+  background: rgba(134, 239, 172, 0.25);
 }

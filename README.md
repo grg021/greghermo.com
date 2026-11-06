@@ -1,13 +1,23 @@
 # greghermo.com
 
-Built using Next.js
+Personal site and blog, built with Next.js (Pages Router).
 
-The blog posts are stored in `/_posts` as Markdown files with front matter support. Adding a new Markdown file in there will create a new blog post.
+Blog posts live in `/_posts` as Markdown files with front matter. Adding a new Markdown file there creates a new post. Front matter is parsed with [`gray-matter`](https://github.com/jonschlinkert/gray-matter), and the body is rendered to HTML with [`markdown-it`](https://github.com/markdown-it/markdown-it).
 
-To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) and [`remark-html`](https://github.com/remarkjs/remark-html) to convert the Markdown files into an HTML string, and then send it down as a prop to the page. The metadata of every post is handled by [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and also sent in props to the page.
+## Development
+
+Requires Node.js 20.9+.
+
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm run lint
+npm run build
+```
 
 ### Tech Stack
 
-- NextJS
-- React
-- Tailwind
+- Next.js 16
+- React 19
+- Tailwind CSS 4 (+ `@tailwindcss/typography`)
+- TypeScript
