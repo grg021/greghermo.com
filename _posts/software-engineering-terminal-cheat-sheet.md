@@ -10,7 +10,7 @@ ogImage:
   url: '/assets/blog/software-engineering-terminal-cheat-sheet/hannah-joshua-46T6nVjRc2w-unsplash.jpg'
 ---
    
-# Prune local git branch for a project
+## Prune local git branch for a project
 
 ```sh
 git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d

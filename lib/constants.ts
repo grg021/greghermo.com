@@ -1,4 +1,17 @@
 export const GITHUB_REPO = 'grg021/greghermo.com'
+export const SITE_URL = 'https://greghermo.com'
 export const SITE_NAME = 'Reflections by Greg Hermo'
-export const HOME_OG_IMAGE_URL =
-    'https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg'
+export const AUTHOR_NAME = 'Greg Hermo'
+export const SITE_DESCRIPTION =
+    'Greg Hermo is a Senior Software Engineer at ContactOut writing about software engineering, career growth, and developer tooling.'
+export const HOME_OG_IMAGE_URL = `${SITE_URL}/assets/img/greghermo_profilepic.JPG`
+export const SOCIAL_LINKS = [
+    'https://twitter.com/greghermo',
+    'https://github.com/grg021',
+    'https://www.linkedin.com/in/greghermo/',
+]
+
+export function absoluteUrl(path: string) {
+    if (/^https?:\/\//.test(path)) return path
+    return `${SITE_URL}${path.startsWith('/') ? '' : '/'}${path}`
+}
