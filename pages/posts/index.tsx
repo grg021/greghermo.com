@@ -3,7 +3,9 @@ import Container from '../../components/container'
 import Link from 'next/link'
 import distanceToNow from '../../lib/utils'
 import Layout from '../../components/layout'
-import Head from 'next/head'
+import { blogSchema } from '../../lib/schema'
+import { SITE_NAME } from '../../lib/constants'
+import { H1 } from '../../lib/styled'
 import {Post} from "../../lib/types";
 
 interface Props {
@@ -12,23 +14,25 @@ interface Props {
 
 export default function Posts({ allPosts }: Props) {
     return (
-      <Layout>
-      <Head>
-        <title>Reflections by Greg Hermo</title>
-      </Head>
+      <Layout meta={{
+        title: `Posts | ${SITE_NAME}`,
+        description: 'Articles by Greg Hermo on software engineering, career growth as a developer, and terminal tooling.',
+        path: '/posts',
+        jsonLd: blogSchema,
+      }}>
       <Container>
+        <H1>Posts</H1>
         {allPosts.length ? (
           allPosts.map((post) => (
             <article key={post.slug} className="mb-10">
-              <Link
-                as={`/posts/${post.slug}`}
-                href="/posts/[slug]"
-                className="text-lg leading-6 font-bold dark:text-white">
-                {post.title}
-              </Link>
+              <h2 className="text-lg leading-6 font-bold dark:text-white">
+                <Link as={`/posts/${post.slug}`} href="/posts/[slug]" className="hover:underline">
+                  {post.title}
+                </Link>
+              </h2>
               <p className='dark:text-gray-400 my-2'>{post.excerpt}</p>
-              <div className="text-gray-400">
-                <time>{distanceToNow(new Date(post.date))}</time>
+              <div className="text-gray-600 dark:text-gray-400">
+                <time dateTime={post.date}>{distanceToNow(new Date(post.date))}</time>
               </div>
             </article>
           ))

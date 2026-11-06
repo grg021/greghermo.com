@@ -1,2 +1,4 @@
 user-agent: *
 disallow:
+
+Sitemap: https://greghermo.com/sitemap.xml

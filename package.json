@@ -4,7 +4,10 @@
     "node": ">=20.9.0"
   },
   "scripts": {
+    "feeds": "node scripts/generate-feeds.mjs",
+    "predev": "npm run feeds",
     "dev": "next dev",
+    "prebuild": "npm run feeds",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."

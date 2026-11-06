@@ -1,5 +1,5 @@
 import Layout from '../components/layout'
-import Head from 'next/head'
+import { personSchema } from '../lib/schema'
 import Container from '../components/container'
 import { H1, H2 } from '../lib/styled'
 import tw from "tailwind-styled-components"
@@ -66,10 +66,13 @@ export default function About() {
   ];
 
   return (
-      <Layout>
-          <Head>
-              <title>About | Greg Hermo</title>
-          </Head>
+      <Layout meta={{
+          title: 'About | Greg Hermo',
+          description: 'About Greg Hermo: Senior Software Engineer at ContactOut, Laravel and React developer, UP Computer Science graduate, husband, father and cyclist from the Philippines.',
+          path: '/about',
+          type: 'profile',
+          jsonLd: personSchema,
+      }}>
           <Container>
               <H1>About</H1>
               <div className="mb-8 leading-8 text-gray-600 dark:text-gray-400 text-lg">

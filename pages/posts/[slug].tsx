@@ -6,7 +6,7 @@ import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import Head from 'next/head'
+import { blogPostingSchema } from '../../lib/schema'
 import { SITE_NAME } from '../../lib/constants'
 import {Post as PostObj} from '../../lib/types'
 
@@ -20,19 +20,21 @@ export default function Post({ post }: Props) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout>
+    <Layout meta={post?.slug ? {
+      title: `${post.title} | ${SITE_NAME}`,
+      description: post.excerpt,
+      path: `/posts/${post.slug}`,
+      image: post.ogImage?.url || post.coverImage,
+      type: 'article',
+      publishedTime: post.date,
+      jsonLd: blogPostingSchema(post),
+    } : undefined}>
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
             <article className="mb-32">
-              <Head>
-                <title>
-                  {post.title} | {SITE_NAME}
-                </title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
@@ -58,6 +60,7 @@ export function getStaticProps({ params }: Params) {
     'slug',
     'author',
     'content',
+    'excerpt',
     'ogImage',
     'coverImage',
   ]) as PostObj
