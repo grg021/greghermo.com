@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 /*
  * The club results board: years sit in one fixed amber column, read by position.
  * Outcome figures from the old site are unconfirmed (see PRODUCT.md) and stay out.
@@ -40,6 +42,15 @@ const WORK = [
     },
   },
   {
+    year: '2013',
+    name: 'eHealth with Ateneo IPC',
+    keepCase: true,
+    role: 'Lead Software Architect, then Lead Technical Developer · 2013 – present',
+    body: 'Health information systems for Philippine local governments with Dr. Dennis Batangan at the Ateneo Institute of Philippine Culture: EMRs, registries and reporting tools for primary care, chronic disease, mental health and traditional medicine.',
+    stack: 'PHP · MySQL · EMR · Health data interoperability',
+    link: { href: '/ehealth', label: 'Five projects' },
+  },
+  {
     year: '2011',
     name: 'Solutions Resource',
     role: 'Lead Developer, then Co-founder & CTO · 2011 – 2015',
@@ -56,6 +67,14 @@ const WORK = [
     link: null,
   },
 ]
+
+function ArrowRight() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" strokeLinecap="square" />
+    </svg>
+  )
+}
 
 function ArrowOut() {
   return (
@@ -86,7 +105,7 @@ export default function Work() {
             >
               <p className="lettering tabular text-2xl text-ball md:text-3xl">{item.year}</p>
               <div>
-                <h3 className="lettering text-[1.75rem] leading-none text-line">{item.name}</h3>
+                <h3 className={`lettering text-[1.75rem] leading-none text-line ${'keepCase' in item ? 'normal-case' : ''}`}>{item.name}</h3>
                 {(() => {
                   const [role, period] = item.role.split(' · ')
                   return (
@@ -101,7 +120,16 @@ export default function Work() {
                 <p className="max-w-measure text-lg leading-relaxed text-line/90">{item.body}</p>
                 <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
                   <p className="label text-board-mist">{item.stack}</p>
-                  {item.link && (
+                  {item.link?.href.startsWith('/') && (
+                    <Link
+                      href={item.link.href}
+                      className="label inline-flex items-center gap-1.5 text-ball underline-offset-4 hover:underline"
+                    >
+                      {item.link.label}
+                      <ArrowRight />
+                    </Link>
+                  )}
+                  {item.link && !item.link.href.startsWith('/') && (
                     <a
                       href={item.link.href}
                       target="_blank"

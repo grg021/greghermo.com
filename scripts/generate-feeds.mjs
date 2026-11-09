@@ -33,6 +33,7 @@ const latest = posts[0]?.date ?? new Date().toISOString()
 const staticPages = [
   { loc: '/', lastmod: latest },
   { loc: '/about' },
+  { loc: '/ehealth' },
   { loc: '/posts', lastmod: latest },
 ]
 
