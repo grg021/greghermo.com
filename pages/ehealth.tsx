@@ -74,6 +74,19 @@ const PROJECTS = [
     ],
     stack: 'PHP · MySQL · Tablet and web EMR · Interoperability',
   },
+  {
+    year: '2011',
+    name: 'eHealth.ph',
+    fullName: 'Philippine Electronic Health Information Village and Portal',
+    role: 'Lead Web Developer and Software Architect',
+    period: '2011 – 2013 · relaunched Nov 2012',
+    partners: 'DOST-PCHRD · Ateneo IPC',
+    body: [
+      'The national health information portal and online community, first launched in 1998 and rebuilt with DOST-PCHRD and Ateneo IPC as a “health information village” where health workers, researchers and the public could reach health databases, research resources and forums. The relaunch also championed PCHRD’s Tuklas-Lunas drug discovery program.',
+      'I rebuilt the platform on Joomla, NGINX, PHP and MySQL, customised the Kunena forum for restricted discussions, real-time notifications and custom submissions, and handled deployments, fixes and server tuning with DOST-PCHRD’s IT engineers. It relaunched in November 2012, was presented at the 13th DOH National Health Research Forum for Action, and became the base for later projects including eHATID.',
+    ],
+    stack: 'Joomla · Kunena · NGINX · PHP · MySQL',
+  },
 ]
 
 export default function EHealth() {
@@ -82,7 +95,7 @@ export default function EHealth() {
       meta={{
         title: 'eHealth | Greg Hermo',
         description:
-          'Health information systems Greg Hermo has built with Dr. Dennis B. Batangan and the Ateneo Institute of Philippine Culture since 2013: eHATID, MuPLoMT, eTSI NOVuS, TaMaHRRiND and eMHPRe UHC.',
+          'Health information systems Greg Hermo has built with Dr. Dennis B. Batangan and the Ateneo Institute of Philippine Culture since 2011: eHealth.ph, eHATID, MuPLoMT, eTSI NOVuS, TaMaHRRiND and eMHPRe UHC.',
         path: '/ehealth',
         type: 'profile',
         jsonLd: personSchema,
@@ -90,17 +103,17 @@ export default function EHealth() {
     >
       <PageBand title={<span className="normal-case">eHealth</span>}>
         <p className="font-serif text-[clamp(1.25rem,2.6vw,1.75rem)] italic leading-snug">
-          Health information systems for Philippine local governments, since 2013.
+          Health information systems for the Philippines, since 2011.
         </p>
       </PageBand>
 
       <div className="px-4 sm:px-8">
         <div className="mx-auto max-w-court bg-line px-5 pb-16 pt-12 text-ink sm:px-10 md:pb-24 md:pt-16 lg:px-16">
           <p className="max-w-measure text-lg leading-relaxed text-ink-soft lg:ml-[12rem] lg:pl-10">
-            Since 2013 I’ve worked with Dr. Dennis B. Batangan, project leader and research scientist at the Institute
+            Since 2011 I’ve worked with Dr. Dennis B. Batangan, project leader and research scientist at the Institute
             of Philippine Culture (IPC), Ateneo de Manila University, on health information systems for local
             governments: electronic medical records, disease and program registries, and the reporting that connects
-            clinics to the Department of Health and PhilHealth. These are the five projects, newest first.
+            clinics to the Department of Health and PhilHealth. These are the six projects, newest first.
           </p>
 
           <ol className="mt-12 border-t-4 border-ink md:mt-16">

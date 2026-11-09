@@ -42,13 +42,13 @@ const WORK = [
     },
   },
   {
-    year: '2013',
+    year: '2011',
     name: 'eHealth with Ateneo IPC',
     keepCase: true,
-    role: 'Lead Software Architect, then Lead Technical Developer · 2013 – present',
-    body: 'Health information systems for Philippine local governments with Dr. Dennis Batangan at the Ateneo Institute of Philippine Culture: EMRs, registries and reporting tools for primary care, chronic disease, mental health and traditional medicine.',
+    role: 'Lead Developer and Software Architect · 2011 – present',
+    body: 'Health information systems with Dr. Dennis Batangan at the Ateneo Institute of Philippine Culture, from the eHealth.ph national portal to EMRs, registries and reporting tools for primary care, chronic disease, mental health and traditional medicine.',
     stack: 'PHP · MySQL · EMR · Health data interoperability',
-    link: { href: '/ehealth', label: 'Five projects' },
+    link: { href: '/ehealth', label: 'Six projects' },
   },
   {
     year: '2011',
