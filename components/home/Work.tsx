@@ -5,17 +5,17 @@
 
 const WORK = [
   {
-    year: 'Now',
+    year: '2021',
     name: 'ContactOut',
-    role: 'Senior Software Engineer · Since 2021',
+    role: 'Senior Software Engineer · 2021 – present',
     body: 'Recruitment intelligence: tools for talent analytics and faster sourcing, built on Laravel and PHP with React.js and Tailwind CSS on the front end.',
     stack: 'Laravel · PHP · React · Tailwind CSS',
     link: { href: 'https://contactout.com', label: 'contactout.com' },
   },
   {
-    year: 'Now',
+    year: '2018',
     name: 'Bo’s Coffee Calamba',
-    role: 'Co-founder, DGH Food Inc. · Since 2018',
+    role: 'Co-founder, DGH Food Inc. · 2018 – present',
     body: 'My wife and I brought Bo’s Coffee to Calamba to make a place for community, connection and great homegrown coffee. More than a business, it is a way to serve. A drive-thru is in progress.',
     stack: 'Stewardship · Community',
     link: { href: 'https://www.boscoffeecalamba.com/', label: 'boscoffeecalamba.com' },
@@ -87,7 +87,15 @@ export default function Work() {
               <p className="lettering tabular text-2xl text-ball md:text-3xl">{item.year}</p>
               <div>
                 <h3 className="lettering text-[1.75rem] leading-none text-line">{item.name}</h3>
-                <p className="label mt-3 text-board-mist">{item.role}</p>
+                {(() => {
+                  const [role, period] = item.role.split(' · ')
+                  return (
+                    <p className="label mt-3 space-y-1.5 text-board-mist">
+                      <span className="block">{role}</span>
+                      {period && <span className="tabular block whitespace-nowrap text-line/70">{period}</span>}
+                    </p>
+                  )
+                })()}
               </div>
               <div className="md:col-start-2 lg:col-start-3">
                 <p className="max-w-measure text-lg leading-relaxed text-line/90">{item.body}</p>
