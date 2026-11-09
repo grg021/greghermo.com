@@ -24,7 +24,7 @@ typography:
     fontVariation: "'wdth' 125"
   headline:
     fontFamily: "Archivo, Arial Narrow, sans-serif"
-    fontSize: "clamp(3rem, 8vw, 6.5rem)"
+    fontSize: "clamp(2rem, 4vw, 3rem)"
     fontWeight: 800
     lineHeight: 0.9
     letterSpacing: "-0.01em"
@@ -154,13 +154,16 @@ A small venue palette: two field colors, one paint, one board and one amber that
 
 ### Hierarchy
 - **Display** (800, wdth 125, uppercase, clamp up to 8.25rem, line-height 0.9): the name in the hero, inside its lettering box. One per page.
-- **Headline** (800, wdth 125, uppercase, clamp(3rem, 8vw, 6.5rem), 0.9): section titles (Work, Journey, Writing, Say hello) and inner-page band titles. Smaller lettering steps (2rem to 3rem) name pillars, Work entries and About sections.
+- **Headline** (800, wdth 125, uppercase, clamp(2rem, 4vw, 3rem), 0.9): section titles on the homepage (Work, Journey, Writing, Say hello). Deliberately small beside the hero name: the name is the only display-size lettering on the page. Inner-page band titles and About section titles keep their own steps; Journey pillars use about 1.75rem.
+- **Work entries** are set as Title (Archivo 700, mixed case), not lettering, with role and dates in the serif; uppercase tracked labels are kept for nav, scoreboard keys, dates on the sheet, stack lines and links.
 - **Title** (Archivo 700 at normal width, mixed case, 1.5rem to 2rem, 1.25): post titles in lists, school names, prose headings. This is the reading-side heading; it is not painted, so it is not uppercase or expanded.
 - **Body** (Source Serif 4 400, 1.125rem to 1.1875rem, 1.625, max 68ch): all running text. Oldstyle numerals by default.
 - **Voice** (Source Serif 4 italic, clamp to about 1.75rem, 1.375): Greg's own line under the name, page-band intros, the Journey quote.
 - **Label** (Archivo 700, 0.8125rem, 0.16em, uppercase): navigation, scoreboard keys, roles, stack lines, dates, footer links. Labels name a value or an action; they never sit alone above a heading as a lead-in.
 
 ### Named Rules
+**The One Loud Thing Rule.** The hero name is the only display-size lettering on the homepage. Section titles stay at headline size (3rem at most); the page is loud once, then calm.
+
 **The Paint Or Voice Rule.** Expanded heavy caps for anything painted on a surface (names, section titles, scores); the serif for anything spoken or read. Do not set paragraphs in Archivo or titles in the serif.
 
 **The Tabular Score Rule.** Years, dates and scoreboard values switch to tabular lining numerals; everywhere else, numerals stay oldstyle.
@@ -202,7 +205,7 @@ After the lines paint and the scoreboard flaps, Greg serves an amber ball from h
 A court-blue field inside a 6px white frame with 4px painted lines at real court proportions, plus a 6px net that runs past the sidelines. Used for the hero, the Journey court (the four pillars in the four service boxes, separated by 4px gaps that show white ground), and as the Page Band on inner pages (one baseline, one service line, title in a lettering box). Lines paint in once on load.
 
 ### Panels
-- **Results board** (board): Work. White lettering titles, amber years in a fixed left column, board-mist roles and stack labels, white body at 90%, amber external links with a square-capped arrow that underline on hover.
+- **Results board** (board): Work on the homepage, one line per role: amber year, white title-style name, board-mist role and dates in the serif, amber link with a square-capped arrow. Rows share one subgrid so the columns align. The full entries (body, stack) are on About.
 - **Scoresheet** (line, with ink text): Writing, About, post lists, post bodies. Court-blue dates and links, title-style headings that underline in court blue (3px, 6px offset) on hover, ink-soft body.
 
 ### Links

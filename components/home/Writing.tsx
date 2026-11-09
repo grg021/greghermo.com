@@ -7,9 +7,9 @@ type Props = { posts: Post[] }
 export default function Writing({ posts }: Props) {
   return (
     <section id="writing" aria-labelledby="writing-title" className="scroll-mt-6 px-4 pt-24 sm:px-8 md:pt-32">
-      <div className="mx-auto max-w-court bg-line px-5 py-14 text-ink sm:px-10 md:py-20 lg:px-16">
+      <div className="mx-auto max-w-court bg-line px-5 py-12 text-ink sm:px-10 md:py-16 lg:px-16">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 id="writing-title" className="lettering text-[clamp(3rem,8vw,6.5rem)]">
+          <h2 id="writing-title" className="lettering text-[clamp(2rem,4vw,3rem)]">
             Writing
           </h2>
           <Link href="/posts" className="label text-court underline decoration-2 underline-offset-4 hover:text-ink">
@@ -20,7 +20,7 @@ export default function Writing({ posts }: Props) {
         {posts.length === 0 ? (
           <p className="mt-12 text-lg text-ink-soft">Nothing posted yet. The first one is on its way.</p>
         ) : (
-          <ol className="mt-12 border-t-4 border-ink md:mt-16">
+          <ol className="mt-10 border-t-4 border-ink md:mt-12">
             {posts.map((post) => (
               <li key={post.slug} className="border-b border-ink/15">
                 <Link
