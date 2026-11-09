@@ -214,7 +214,7 @@ A court-blue field inside a 6px white frame with 4px painted lines at real court
 - **Email in the footer:** large serif in white with a 4px amber underline, turning amber on hover.
 
 ### Focus and Selection
-Every focusable element gets a 3px solid amber outline at 3px offset. Text selection is amber with ink text. The skip link is an amber label block with ink text, fixed top-left when focused.
+Every focusable element gets a 3px solid amber outline at 3px offset; on the white sheet the outline turns court blue, because amber is about 1.7:1 on white. Text selection is amber with ink text. The skip link is an amber label block with ink text, fixed top-left when focused.
 
 ### Motion
 Lines paint in with a scale transform (900ms, cubic-bezier(0.16, 1, 0.3, 1)) once on load; scoreboard values flap in from a blank tile (520ms, same curve: the face drops from its top edge, so the load reveals the value) and flap over again on hover and focus. The rally ball travels on cubic-bezier(0.3, 0.05, 0.25, 1) for 460 to 1000ms by distance, then skids 34px on the settle curve. Color changes run 200ms. Under reduced motion every animation and transition collapses to 1ms, so the court arrives already painted.

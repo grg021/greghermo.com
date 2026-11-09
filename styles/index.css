@@ -93,6 +93,11 @@
     outline-offset: 3px;
   }
 
+  /* Amber is about 1.7:1 on the white sheet; court blue is about 6.9:1 there. */
+  .bg-line.text-ink :focus-visible {
+    outline-color: var(--color-court);
+  }
+
   a {
     text-underline-offset: 0.22em;
     text-decoration-thickness: 2px;
