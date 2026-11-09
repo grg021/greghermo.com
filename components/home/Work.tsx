@@ -8,7 +8,7 @@ const WORK = [
     year: '2025',
     name: 'Bo’s Coffee Calamba',
     role: 'Co-founder, DGH Food Inc. · 2025 – present',
-    body: 'My wife and I brought Bo’s Coffee to Calamba to make a place for community, connection and great homegrown coffee. More than a business, it is a way to serve. A drive-thru is in progress.',
+    body: 'My wife and I brought Bo’s Coffee to Calamba to make a place for community, connection and great homegrown coffee. It’s a full store with a drive-thru, and more than a business, it’s a way to serve.',
     stack: 'Stewardship · Community',
     link: { href: 'https://www.boscoffeecalamba.com/', label: 'boscoffeecalamba.com' },
   },
