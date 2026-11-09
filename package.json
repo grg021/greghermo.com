@@ -5,6 +5,7 @@
   },
   "scripts": {
     "feeds": "node scripts/generate-feeds.mjs",
+    "icons": "node scripts/generate-icons.mjs",
     "predev": "npm run feeds",
     "dev": "next dev",
     "prebuild": "npm run feeds",
