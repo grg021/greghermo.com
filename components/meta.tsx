@@ -42,14 +42,10 @@ export default function Meta({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
 
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
-      <link rel="manifest" href="/favicons/site.webmanifest" />
-      <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#000000" />
-      <link rel="shortcut icon" href="/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#3E7350" />
-      <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+      <link rel="icon" href="/favicon.ico" sizes="48x48" />
+      <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
       <meta name="theme-color" content="#3E7350" />
       <link rel="alternate" type="application/rss+xml" title={SITE_NAME} href="/feed.xml" />
 
