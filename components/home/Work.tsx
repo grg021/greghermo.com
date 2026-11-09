@@ -5,20 +5,20 @@
 
 const WORK = [
   {
+    year: '2025',
+    name: 'Bo’s Coffee Calamba',
+    role: 'Co-founder, DGH Food Inc. · 2025 – present',
+    body: 'My wife and I brought Bo’s Coffee to Calamba to make a place for community, connection and great homegrown coffee. More than a business, it is a way to serve. A drive-thru is in progress.',
+    stack: 'Stewardship · Community',
+    link: { href: 'https://www.boscoffeecalamba.com/', label: 'boscoffeecalamba.com' },
+  },
+  {
     year: '2021',
     name: 'ContactOut',
     role: 'Senior Software Engineer · 2021 – present',
     body: 'Recruitment intelligence: tools for talent analytics and faster sourcing, built on Laravel and PHP with React.js and Tailwind CSS on the front end.',
     stack: 'Laravel · PHP · React · Tailwind CSS',
     link: { href: 'https://contactout.com', label: 'contactout.com' },
-  },
-  {
-    year: '2018',
-    name: 'Bo’s Coffee Calamba',
-    role: 'Co-founder, DGH Food Inc. · 2018 – present',
-    body: 'My wife and I brought Bo’s Coffee to Calamba to make a place for community, connection and great homegrown coffee. More than a business, it is a way to serve. A drive-thru is in progress.',
-    stack: 'Stewardship · Community',
-    link: { href: 'https://www.boscoffeecalamba.com/', label: 'boscoffeecalamba.com' },
   },
   {
     year: '2016',
