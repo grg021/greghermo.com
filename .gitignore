@@ -43,3 +43,10 @@ next-env.d.ts
 # generated at build time by scripts/generate-feeds.mjs
 /public/sitemap.xml
 /public/feed.xml
+
+# Claude Code local state and installed skills (restore skills with `npx impeccable install` / `npx skills experimental_install`)
+/.claude/
+
+# Impeccable local runtime state
+/.impeccable/decision/
+/.impeccable/hook.cache.json

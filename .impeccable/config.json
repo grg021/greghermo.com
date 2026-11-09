@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/decision/sketch-pick.html"
+        ],
+        "createdAt": "2026-11-09T02:22:42.190Z",
+        "reason": "Claude: throwaway decision-page thumbnail sketch, not shipped; the built site has its own padding"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/decision/sketch-centre-rail.html"
+        ],
+        "createdAt": "2026-11-09T02:22:42.225Z",
+        "reason": "Claude: decision-page sketch of the rejected Annotated Edition challenger, whose catalog world is bone paper by definition; not shipped"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/decision/sketch-assigned.html"
+        ],
+        "createdAt": "2026-11-09T02:30:43.972Z",
+        "reason": "Claude: throwaway decision-page sketch with system-font stand-ins, not shipped; the site uses the DESIGN.md faces"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/decision/sketch-pick.html"
+        ],
+        "createdAt": "2026-11-09T02:30:44.017Z",
+        "reason": "Claude: throwaway decision-page sketch with system-font stand-ins, not shipped; the site uses the DESIGN.md faces"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/decision/sketch-canon.html"
+        ],
+        "createdAt": "2026-11-09T02:30:44.059Z",
+        "reason": "Claude: throwaway decision-page sketch with system-font stand-ins, not shipped; the site uses the DESIGN.md faces"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "0.95rem",
+        "files": [
+          "components/home/CourtHero.tsx"
+        ],
+        "createdAt": "2026-11-09T02:50:17.154Z",
+        "reason": "Claude: phone-only scoreboard value size so 'LEVELLING UP' fits a half-width cell; sm+ uses the 1.125rem ramp step"
+      }
+    ]
+  }
+}

@@ -48,9 +48,9 @@ export default function Meta({
       <link rel="manifest" href="/favicons/site.webmanifest" />
       <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#000000" />
       <link rel="shortcut icon" href="/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#000000" />
+      <meta name="msapplication-TileColor" content="#3E7350" />
       <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
+      <meta name="theme-color" content="#3E7350" />
       <link rel="alternate" type="application/rss+xml" title={SITE_NAME} href="/feed.xml" />
 
       {jsonLd && (

@@ -1,28 +1,26 @@
 import { ReactNode } from 'react'
-import Footer from '../components/footer'
-import Meta, { MetaProps } from '../components/meta'
-import Header from '../components/header'
+import Footer from './footer'
+import Meta, { MetaProps } from './meta'
+import Header from './header'
 
 interface Props {
-    children: ReactNode
-    meta?: MetaProps
+  children: ReactNode
+  meta?: MetaProps
 }
 
 export default function Layout({ children, meta }: Props) {
-    return (
-        <div className='antialiased dark:bg-gray-900'>
-            <Meta {...meta} />
-            <a
-                href="#main"
-                className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-black focus:shadow"
-            >
-                Skip to content
-            </a>
-            <Header />
-            <div className="min-h-screen py-14">
-                <main id="main">{children}</main>
-            </div>
-            <Footer />
-        </div>
-    )
+  return (
+    <div className="min-h-screen bg-surround text-line">
+      <Meta {...meta} />
+      <a
+        href="#main"
+        className="label sr-only z-50 bg-ball px-4 py-3 text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      >
+        Skip to content
+      </a>
+      <Header />
+      <main id="main">{children}</main>
+      <Footer />
+    </div>
+  )
 }

@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
 import PostBody from '../../components/post-body'
 import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
@@ -29,22 +28,14 @@ export default function Post({ post }: Props) {
       publishedTime: post.date,
       jsonLd: blogPostingSchema(post),
     } : undefined}>
-      <Container>
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article className="mb-32">
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-              />
-              <PostBody content={post.content} />
-            </article>
-          </>
-        )}
-      </Container>
+      {router.isFallback ? (
+        <PostTitle>Loading…</PostTitle>
+      ) : (
+        <article>
+          <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} />
+          <PostBody content={post.content} />
+        </article>
+      )}
     </Layout>
   )
 }

@@ -1,25 +1,47 @@
 import Link from 'next/link'
-import Container from '../components/container'
-import cn from 'classnames'
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router'
 
-const navLinkClasses = `
-  cursor-pointer font-normal text-gray-600 dark:text-gray-400 hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all
-`
+const NAV = [
+  { href: '/#work', label: 'Work', match: null },
+  { href: '/#journey', label: 'Journey', match: null },
+  { href: '/posts', label: 'Writing', match: '/posts' },
+  { href: '/about', label: 'About', match: '/about' },
+]
 
 export default function Header() {
-
-  const router = useRouter();
+  const { pathname } = useRouter()
 
   return (
-    <header className="py-6">
-      <Container>
-        <nav className="flex">
-          <Link href="/" className={cn(navLinkClasses, { "font-semibold": router.pathname === "/" })}>Home</Link>
-          <Link href="/posts" className={cn(navLinkClasses, { "font-semibold": router.pathname === "/posts" })}>Posts</Link>
-          <Link href="/about" className={cn(navLinkClasses, { "font-semibold": router.pathname === "/about" })}>About</Link>
+    <header className="bg-surround">
+      <div className="mx-auto flex max-w-court flex-col gap-4 px-4 pb-6 pt-6 sm:px-8 md:flex-row md:items-center md:justify-between md:pb-8 md:pt-8">
+        <Link
+          href="/"
+          className="lettering text-[1.375rem] text-line no-underline hover:text-ball"
+          aria-label="Greg Hermo, home"
+        >
+          Greg Hermo
+        </Link>
+        <nav aria-label="Main">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 sm:gap-x-9">
+            {NAV.map(({ href, label, match }) => {
+              const active = match !== null && pathname.startsWith(match)
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    aria-current={active ? 'page' : undefined}
+                    className={`label inline-block border-b-4 pb-1 text-line transition-colors duration-200 hover:border-line ${
+                      active ? 'border-line' : 'border-transparent'
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
         </nav>
-      </Container>
+      </div>
     </header>
-  );
+  )
 }

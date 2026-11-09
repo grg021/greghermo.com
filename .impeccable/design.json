@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T00:00:00Z",
+  "title": "Design System: Greg Hermo",
+  "extensions": {
+    "colorMeta": {
+      "court": { "role": "primary", "displayName": "Matte Court Blue", "canonical": "#2D5B88", "tonalRamp": ["#000B1D", "#002546", "#184269", "#34618D", "#5B84AD", "#84A8CE", "#AECEF0", "#E2F0FF"] },
+      "ball": { "role": "secondary", "displayName": "Scoreboard Amber", "canonical": "#F2C14E", "tonalRamp": ["#120900", "#332000", "#533B00", "#765906", "#9E7A21", "#C89E38", "#F4C351", "#FFECBF"] },
+      "court-mist": { "role": "neutral", "displayName": "Court Mist", "canonical": "#D7E3EF", "tonalRamp": ["#0A0B0D", "#212428", "#3B4045", "#585E65", "#798189", "#9CA6AF", "#C1CCD7", "#E9EFF5"] },
+      "surround": { "role": "neutral", "displayName": "Run-off Green", "canonical": "#3E7350", "tonalRamp": ["#001004", "#032C15", "#1D4A2E", "#376A49", "#5D8D6C", "#85B192", "#AFD6BA", "#E3F4E7"] },
+      "surround-deep": { "role": "neutral", "displayName": "Shaded Run-off", "canonical": "#33603F", "tonalRamp": ["#010F04", "#072C14", "#214A2C", "#3E6949", "#648B6D", "#8CAF93", "#B5D4BB", "#E5F3E8"] },
+      "surround-mist": { "role": "neutral", "displayName": "Surround Mist", "canonical": "#DCEADF", "tonalRamp": ["#0A0C0A", "#212522", "#3C413D", "#59605A", "#7A837C", "#9DA89F", "#C2CEC4", "#EAF1EB"] },
+      "line": { "role": "neutral", "displayName": "Painted Line White", "canonical": "#FFFFFF", "tonalRamp": ["#0B0B0B", "#242424", "#404040", "#5D5D5D", "#808080", "#A4A4A4", "#CACACA", "#EEEEEE"] },
+      "board": { "role": "neutral", "displayName": "Club Board Black", "canonical": "#14202B", "tonalRamp": ["#060C12", "#192530", "#36414C", "#545F69", "#78828B", "#9DA6AE", "#C4CBD2", "#ECEFF2"] },
+      "board-rule": { "role": "neutral", "displayName": "Board Rule", "canonical": "#2B3A48", "tonalRamp": ["#050C13", "#182532", "#33414F", "#515F6D", "#75828E", "#9BA6B1", "#C2CCD6", "#EBEFF3"] },
+      "board-mist": { "role": "neutral", "displayName": "Board Mist", "canonical": "#C7D1DA", "tonalRamp": ["#0A0B0D", "#212428", "#3C4044", "#595E64", "#7A8188", "#9DA6AD", "#C2CCD5", "#EAEFF3"] },
+      "ink": { "role": "neutral", "displayName": "Scoresheet Ink", "canonical": "#14202B", "tonalRamp": ["#060C12", "#192530", "#36414C", "#545F69", "#78828B", "#9DA6AE", "#C4CBD2", "#ECEFF2"] },
+      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#3E4C59", "tonalRamp": ["#060C11", "#1A252F", "#34414E", "#525F6C", "#75828E", "#9BA6B1", "#C2CCD5", "#EBEFF3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display lettering", "purpose": "The name in the hero, in its lettering box. One per page." },
+      "headline": { "displayName": "Section lettering", "purpose": "Section titles and inner-page band titles; smaller lettering steps name pillars, Work entries and About sections." },
+      "title": { "displayName": "Reading title", "purpose": "Post titles in lists, school names, prose headings; normal width, mixed case." },
+      "body": { "displayName": "Body serif", "purpose": "All running text, oldstyle numerals, max 68ch." },
+      "voice": { "displayName": "Voice italic", "purpose": "Greg's own line, page-band intros, the Journey quote. Rendered italic." },
+      "label": { "displayName": "Label", "purpose": "Navigation, scoreboard keys, roles, stack lines, dates, footer links. Never a lead-in above a heading." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-paint", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Shared curve for line paint-in and scoreboard flap." },
+      { "name": "paint-in", "value": "900ms", "purpose": "Court lines scale in from their origin once on load, staggered 60-120ms per line." },
+      { "name": "flap", "value": "520ms", "purpose": "Scoreboard values rotate over on load (staggered 140ms per cell) and again on hover and focus." },
+      { "name": "color-change", "value": "200ms", "purpose": "Hover color and border changes." },
+      { "name": "reduced-motion", "value": "1ms", "purpose": "All animations and transitions collapse under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px", "purpose": "Hero court turns from portrait to landscape; scoreboard goes to four columns." }
+    ],
+    "focus": { "value": "outline: 3px solid #F2C14E; outline-offset: 3px", "purpose": "Every focusable element." },
+    "selection": { "value": "background: #F2C14E; color: #14202B" }
+  },
+  "components": [
+    {
+      "name": "Main Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Wordmark in painted lettering and label links with a 4px underline bar, on the surround.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">Greg Hermo</a><ul class=\"ds-nav-list\"><li><a class=\"ds-nav-link\" href=\"#\">Work</a></li><li><a class=\"ds-nav-link\" href=\"#\">Journey</a></li><li><a class=\"ds-nav-link\" href=\"#\" aria-current=\"page\">Writing</a></li><li><a class=\"ds-nav-link\" href=\"#\">About</a></li></ul></header>",
+      "css": ".ds-nav { background: #3E7350; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 32px; } .ds-nav-mark { font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 125%; font-variation-settings: 'wdth' 125; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.9; font-size: 1.375rem; color: #FFFFFF; text-decoration: none; transition: color 200ms; } .ds-nav-mark:hover { color: #F2C14E; } .ds-nav-list { display: flex; gap: 36px; list-style: none; margin: 0; padding: 0; } .ds-nav-link { display: inline-block; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 700; font-size: 0.8125rem; line-height: 1.2; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF; text-decoration: none; padding-bottom: 4px; border-bottom: 4px solid transparent; transition: border-color 200ms; } .ds-nav-link:hover, .ds-nav-link[aria-current=page] { border-bottom-color: #FFFFFF; } .ds-nav-link:focus-visible, .ds-nav-mark:focus-visible { outline: 3px solid #F2C14E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Scoreboard",
+      "kind": "custom",
+      "refersTo": "scoreboard-cell",
+      "description": "Board-black strip of linked cells: white label key, amber lettering value that flaps over on hover and focus.",
+      "html": "<ul class=\"ds-board\"><li><a class=\"ds-board-cell\" href=\"#\"><span class=\"ds-board-key\">Faith</span><span class=\"ds-board-val\">First</span></a></li><li><a class=\"ds-board-cell\" href=\"#\"><span class=\"ds-board-key\">Craft</span><span class=\"ds-board-val\">Since 2009</span></a></li></ul>",
+      "css": ".ds-board { display: grid; grid-template-columns: 1fr 1fr; background: #14202B; list-style: none; margin: 0; padding: 0; } .ds-board li + li { border-left: 1px solid #2B3A48; } .ds-board-cell { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 20px 24px; color: #FFFFFF; text-decoration: none; perspective: 600px; transition: background-color 200ms; } .ds-board-cell:hover { background: rgba(43, 58, 72, 0.6); } .ds-board-cell:focus-visible { outline: 3px solid #F2C14E; outline-offset: 3px; } .ds-board-key { font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; } .ds-board-val { display: inline-block; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 125%; font-variation-settings: 'wdth' 125; text-transform: uppercase; line-height: 0.9; font-size: 1.125rem; color: #F2C14E; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; } .ds-board-cell:hover .ds-board-val, .ds-board-cell:focus-visible .ds-board-val { animation: ds-flap 520ms cubic-bezier(0.16, 1, 0.3, 1) both; } @keyframes ds-flap { 0% { transform: rotateX(0deg); } 45% { transform: rotateX(-90deg); } 55% { transform: rotateX(90deg); } 100% { transform: rotateX(0deg); } } @media (prefers-reduced-motion: reduce) { .ds-board-cell:hover .ds-board-val, .ds-board-cell:focus-visible .ds-board-val { animation: none; } }"
+    },
+    {
+      "name": "Court Frame",
+      "kind": "custom",
+      "refersTo": "court-frame",
+      "description": "Court-blue field in a 6px white frame with painted 4px lines; type sits on a court-blue lettering box the lines stop at.",
+      "html": "<div class=\"ds-court\"><div class=\"ds-court-base\"></div><div class=\"ds-court-service\"></div><h1 class=\"ds-court-title\">About</h1></div>",
+      "css": ".ds-court { position: relative; background: #2D5B88; border: 6px solid #FFFFFF; padding: 48px 40px 96px; } .ds-court-base { position: absolute; left: 0; right: 0; bottom: 18%; height: 4px; background: #FFFFFF; transform-origin: left; animation: ds-paint-x 900ms cubic-bezier(0.16, 1, 0.3, 1) both; } .ds-court-service { position: absolute; top: 0; bottom: 0; left: 23.1%; width: 4px; background: #FFFFFF; transform-origin: top; animation: ds-paint-y 900ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both; } .ds-court-title { position: relative; display: inline; margin: 0; background: #2D5B88; padding: 4px 12px 4px 0; color: #FFFFFF; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 125%; font-variation-settings: 'wdth' 125; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.9; font-size: 4rem; } @keyframes ds-paint-x { from { transform: scaleX(0); } to { transform: scaleX(1); } } @keyframes ds-paint-y { from { transform: scaleY(0); } to { transform: scaleY(1); } } @media (prefers-reduced-motion: reduce) { .ds-court-base, .ds-court-service { animation: none; } }"
+    },
+    {
+      "name": "Results Board Row",
+      "kind": "card",
+      "refersTo": "panel-board",
+      "description": "Work entry on the board: amber year column, lettering name, board-mist role, white body, amber external link.",
+      "html": "<div class=\"ds-results\"><div class=\"ds-results-row\"><p class=\"ds-results-year\">2018</p><div><h3 class=\"ds-results-name\">Bo’s Coffee Calamba</h3><p class=\"ds-results-role\">Co-founder, DGH Food Inc.</p></div><div><p class=\"ds-results-body\">My wife and I brought Bo’s Coffee to Calamba to make a place for community.</p><a class=\"ds-results-link\" href=\"#\">boscoffeecalamba.com <svg viewBox=\"0 0 16 16\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 11 11 5M6 5h5v5\" stroke-linecap=\"square\"/></svg></a></div></div></div>",
+      "css": ".ds-results { background: #14202B; color: #FFFFFF; padding: 40px 64px; } .ds-results-row { display: grid; grid-template-columns: 8rem minmax(0, 0.9fr) minmax(0, 1.3fr); column-gap: 40px; row-gap: 12px; padding: 40px 0; border-top: 1px solid #2B3A48; border-bottom: 1px solid #2B3A48; } .ds-results-year, .ds-results-name { margin: 0; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 125%; font-variation-settings: 'wdth' 125; text-transform: uppercase; line-height: 0.9; } .ds-results-year { font-size: 1.875rem; color: #F2C14E; font-variant-numeric: tabular-nums lining-nums; } .ds-results-name { font-size: 2rem; line-height: 1; } .ds-results-role { margin: 12px 0 0; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; color: #C7D1DA; } .ds-results-body { margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.125rem; line-height: 1.625; color: rgba(255, 255, 255, 0.9); max-width: 68ch; } .ds-results-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; color: #F2C14E; text-decoration: none; text-underline-offset: 4px; } .ds-results-link:hover { text-decoration: underline; } .ds-results-link:focus-visible { outline: 3px solid #F2C14E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Scoresheet List Item",
+      "kind": "card",
+      "refersTo": "panel-sheet",
+      "description": "Post row on the white sheet: court-blue tabular date column, reading title that underlines in court blue on hover, soft-ink excerpt.",
+      "html": "<div class=\"ds-sheet\"><ol class=\"ds-sheet-list\"><li><a class=\"ds-sheet-row\" href=\"#\"><time class=\"ds-sheet-date\">Mar 2024</time><div><h3 class=\"ds-sheet-title\">Notes on levelling up</h3><p class=\"ds-sheet-excerpt\">What tennis practice taught me about learning a new codebase.</p></div></a></li></ol></div>",
+      "css": ".ds-sheet { background: #FFFFFF; color: #14202B; padding: 40px 64px; } .ds-sheet-list { list-style: none; margin: 0; padding: 0; border-top: 4px solid #14202B; } .ds-sheet-list li { border-bottom: 1px solid rgba(20, 32, 43, 0.15); } .ds-sheet-row { display: grid; grid-template-columns: 8rem minmax(0, 1fr); column-gap: 40px; padding: 40px 0; color: inherit; text-decoration: none; } .ds-sheet-row:focus-visible { outline: 3px solid #F2C14E; outline-offset: 3px; } .ds-sheet-date { padding-top: 6px; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; color: #2D5B88; font-variant-numeric: tabular-nums lining-nums; } .ds-sheet-title { margin: 0; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 700; font-size: 1.75rem; line-height: 1.25; text-decoration-color: #2D5B88; text-decoration-thickness: 3px; text-underline-offset: 6px; } .ds-sheet-row:hover .ds-sheet-title { text-decoration-line: underline; } .ds-sheet-excerpt { margin: 12px 0 0; max-width: 68ch; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.125rem; line-height: 1.625; color: #3E4C59; }"
+    },
+    {
+      "name": "Sheet Link",
+      "kind": "button",
+      "refersTo": "link-sheet",
+      "description": "Label-style text link on the white sheet (e.g. All posts); the system's only action besides plain links.",
+      "html": "<a class=\"ds-link-sheet\" href=\"#\">All posts</a>",
+      "css": ".ds-link-sheet { font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 700; font-size: 0.8125rem; line-height: 1.2; letter-spacing: 0.16em; text-transform: uppercase; color: #2D5B88; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; transition: color 200ms; } .ds-link-sheet:hover { color: #14202B; } .ds-link-sheet:focus-visible { outline: 3px solid #F2C14E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Contact Email",
+      "kind": "custom",
+      "description": "Large serif email link on the surround with a 4px amber underline.",
+      "html": "<div class=\"ds-contact\"><a class=\"ds-contact-email\" href=\"#\">greg.hermo@gmail.com</a></div>",
+      "css": ".ds-contact { background: #3E7350; padding: 40px 32px; } .ds-contact-email { font-family: 'Source Serif 4', Georgia, serif; font-size: 2.75rem; color: #FFFFFF; text-decoration: underline; text-decoration-color: #F2C14E; text-decoration-thickness: 4px; text-underline-offset: 8px; transition: color 200ms; word-break: break-all; } .ds-contact-email:hover { color: #F2C14E; } .ds-contact-email:focus-visible { outline: 3px solid #F2C14E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Skip Link",
+      "kind": "button",
+      "refersTo": "skip-link",
+      "description": "Amber label block shown fixed top-left on keyboard focus.",
+      "html": "<a class=\"ds-skip\" href=\"#\">Skip to content</a>",
+      "css": ".ds-skip { display: inline-block; background: #F2C14E; color: #14202B; padding: 12px 16px; font-family: Archivo, 'Arial Narrow', sans-serif; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; } .ds-skip:focus-visible { outline: 3px solid #F2C14E; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Hard Court",
+    "overview": "The site is a tennis venue seen from above. A matte blue court sits inside a green surround; white painted lines divide it with real court proportions (78 by 36 ft: singles alleys at 12.5%, service lines at 23.1% from each baseline). The content lives where things live at a club: the name is painted on the court, the four pillars are kept on a black club scoreboard with amber values, work is posted on a results board, and anything meant for reading is set on a white scoresheet. The athlete mindset is the structure, not a decoration on top of it.\n\nEverything is flat paint. There is no radius, no shadow and no gradient, because a painted court has none; depth is the order of materials (surround, court, line, board, sheet), never light. Density is calm: long vertical rhythm between sections, generous panel padding, measured serif text. Painted lettering (Archivo at its widest, heavy caps) carries names and section titles; Source Serif 4 carries Greg's own voice.\n\nIt refuses the dark-slate developer portfolio: gradient names, particle fields, tool-chip grids and card grids.",
+    "keyCharacteristics": [
+      "Flat painted materials in a fixed set: court blue, surround green, line white, board black, ball amber.",
+      "White lines are solid bars of fixed width (4px lines, 6px frames and nets) that stop at painted lettering boxes.",
+      "Wide heavy caps for anything painted; a serif for anything spoken or read.",
+      "Square corners everywhere, including photographs and code blocks.",
+      "Motion is a club's motion: lines paint in once, scoreboard values flap over."
+    ],
+    "rules": [
+      { "name": "The Five Materials Rule", "body": "Every surface is surround, court, line, board, or sheet. A new surface picks one of these; no tints, washes, or blends between them.", "section": "colors" },
+      { "name": "The Amber Is A Score Rule", "body": "Ball amber marks a value, a link, or focus. It is never a background block bigger than the skip link, and never body copy.", "section": "colors" },
+      { "name": "The Mist Belongs To Its Ground Rule", "body": "Each mist is paired with its ground: court-mist on court, board-mist on board, surround-mist on surround. Never move a mist to another ground.", "section": "colors" },
+      { "name": "The Paint Or Voice Rule", "body": "Expanded heavy caps for anything painted on a surface (names, section titles, scores); the serif for anything spoken or read. Do not set paragraphs in Archivo or titles in the serif.", "section": "typography" },
+      { "name": "The Tabular Score Rule", "body": "Years, dates and scoreboard values switch to tabular lining numerals; everywhere else, numerals stay oldstyle.", "section": "typography" },
+      { "name": "The Flat Paint Rule", "body": "No box-shadow, no drop-shadow, no gradient, no backdrop blur, on any element in any state.", "section": "elevation" },
+      { "name": "The Lettering Box Rule", "body": "Type placed over court lines sits on its own court-blue patch with a few pixels of padding, and the lines stop at its edge. Never let a line cross lettering, and never lift type off the court with a shadow.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do build every surface from the five materials: surround, court, line, board, sheet.",
+      "Do draw court geometry with solid white bars (4px lines, 6px frames and nets) at real court proportions.",
+      "Do put type that crosses court lines on a court-blue lettering box so the lines stop at its edge.",
+      "Do set names, section titles and scores in Archivo 800 at wdth 125, uppercase, line-height 0.9; set everything read or spoken in Source Serif 4.",
+      "Do use ball amber only for scores, years, links on dark grounds, focus and selection.",
+      "Do present lists as ruled tables with a fixed year or date column, not as cards.",
+      "Do keep motion to paint-in and flap, and make it static under reduced motion."
+    ],
+    "donts": [
+      "Don't round any corner, including images and code blocks (0px everywhere).",
+      "Don't use box-shadows, gradients, glows or blur; depth is material order.",
+      "Don't reintroduce the dark-slate developer portfolio: gradient names, particle backgrounds, tool-chip grids, card grids.",
+      "Don't put a small uppercase label above a heading as a lead-in; labels name a value or an action.",
+      "Don't set small text in surround-mist or amber on the green surround; both fall below 4.5:1 there.",
+      "Don't move a mist color off its own ground."
+    ]
+  }
+}

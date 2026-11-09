@@ -1,16 +1,134 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-ul {
-  @apply list-inside list-disc;
+/* Hard Court world: see DESIGN.md and .impeccable/surfaces/pages-index-tsx.md */
+@theme {
+  --color-court: #2D5B88; /* matte hard-court blue */
+  --color-court-deep: #24496E;
+  --color-court-mist: #D7E3EF; /* secondary text on court blue */
+
+  --color-surround: #3E7350; /* green run-off around the court */
+  --color-surround-deep: #33603F;
+  --color-surround-mist: #DCEADF; /* large text only on the surround */
+
+  --color-line: #FFFFFF; /* painted line white */
+
+  --color-board: #14202B; /* club scoreboard */
+  --color-board-rule: #2B3A48;
+  --color-board-mist: #C7D1DA;
+
+  --color-ball: #F2C14E; /* scoreboard amber */
+
+  --color-ink: #14202B;
+  --color-ink-soft: #3E4C59;
+
+  --tracking-label: 0.16em;
+
+  --container-court: 82rem;
+  --container-measure: 68ch;
+
+  --animate-paint-x: paintX 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-paint-y: paintY 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-flap: flap 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* Same flap under a separate name so hover can replay it after the load flap. */
+  --animate-flap-again: flapAgain 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes paintX {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes paintY {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  @keyframes flap {
+    0% { transform: rotateX(0deg); }
+    45% { transform: rotateX(-90deg); }
+    55% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0deg); }
+  }
+  @keyframes flapAgain {
+    0% { transform: rotateX(0deg); }
+    45% { transform: rotateX(-90deg); }
+    55% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0deg); }
+  }
 }
 
-.code-highlight {
-  border-radius: 0.1875rem;
-  padding: 0.0625rem 0.1875rem;
-  margin: 0 -0.1875rem;
+/* next/font sets --font-archivo and --font-source-serif on the app wrapper (pages/_app.tsx),
+   so these resolve where they are used, not at :root. */
+@theme inline {
+  --font-display: var(--font-archivo), 'Arial Narrow', sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, serif;
 }
 
-.bg-code-highlight {
-  background: rgba(134, 239, 172, 0.25);
+@layer base {
+  html {
+    background: var(--color-surround);
+    color: var(--color-line);
+    scroll-behavior: smooth;
+    scrollbar-color: var(--color-court) var(--color-surround-deep);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  ::selection {
+    background: var(--color-ball);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ball);
+    outline-offset: 3px;
+  }
+
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 2px;
+  }
+
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: var(--color-surround-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--color-court); border: 3px solid var(--color-surround-deep); }
+}
+
+@layer components {
+  /* Painted lettering: Archivo at its widest, heavy caps. */
+  .lettering {
+    font-family: var(--font-archivo), 'Arial Narrow', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-stretch: 125%;
+    font-variation-settings: 'wdth' 125;
+    letter-spacing: -0.01em;
+    line-height: 0.9;
+  }
+
+  /* Small scoreboard / court labels. */
+  .label {
+    font-family: var(--font-archivo), 'Arial Narrow', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    line-height: 1.2;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
 }

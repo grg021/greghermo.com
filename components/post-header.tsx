@@ -1,19 +1,26 @@
-import DateFormatter from '../components/date-formatter'
-import CoverImage from '../components/cover-image'
-import PostTitle from '../components/post-title'
+import Image from 'next/image'
+import { format, parseISO } from 'date-fns'
+import PageBand from './page-band'
 
-export default function PostHeader({ title, coverImage, date }) {
+type Props = { title: string; coverImage?: string; date: string }
+
+export default function PostHeader({ title, coverImage, date }: Props) {
   return (
     <>
-      <PostTitle>{title}</PostTitle>
-      <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} src={coverImage} height={340} width={620} />
-      </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-6 text-lg text-gray-500">
-          <DateFormatter dateString={date} />
+      <PageBand title={title}>
+        <time dateTime={date} className="label tabular text-court-mist">
+          {format(parseISO(date), 'MMMM d, yyyy')}
+        </time>
+      </PageBand>
+      {coverImage && (
+        <div className="px-4 sm:px-8">
+          <div className="mx-auto max-w-court bg-line px-5 pt-10 sm:px-10 md:pt-16 lg:px-16">
+            <div className="relative mx-auto aspect-[620/340] max-w-3xl">
+              <Image src={coverImage} alt="" fill sizes="(min-width: 768px) 48rem, 100vw" className="object-cover" />
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
