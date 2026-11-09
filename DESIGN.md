@@ -24,7 +24,7 @@ typography:
     fontVariation: "'wdth' 125"
   headline:
     fontFamily: "Archivo, Arial Narrow, sans-serif"
-    fontSize: "clamp(3rem, 8vw, 6.5rem)"
+    fontSize: "clamp(2rem, 4vw, 3rem)"
     fontWeight: 800
     lineHeight: 0.9
     letterSpacing: "-0.01em"
@@ -114,7 +114,7 @@ It refuses the dark-slate developer portfolio: gradient names, particle fields, 
 - White lines are solid bars of fixed width (4px lines, 6px frames and nets) that stop at painted lettering boxes.
 - Wide heavy caps for anything painted; a serif for anything spoken or read.
 - Square corners everywhere, including photographs and code blocks.
-- Motion is a club's motion: lines paint in once, scoreboard values flap over.
+- Motion is a club's motion: lines paint in once, scoreboard values flap over, and the hero court plays a point.
 
 ## Colors
 
@@ -154,13 +154,16 @@ A small venue palette: two field colors, one paint, one board and one amber that
 
 ### Hierarchy
 - **Display** (800, wdth 125, uppercase, clamp up to 8.25rem, line-height 0.9): the name in the hero, inside its lettering box. One per page.
-- **Headline** (800, wdth 125, uppercase, clamp(3rem, 8vw, 6.5rem), 0.9): section titles (Work, Journey, Writing, Say hello) and inner-page band titles. Smaller lettering steps (2rem to 3rem) name pillars, Work entries and About sections.
+- **Headline** (800, wdth 125, uppercase, clamp(2rem, 4vw, 3rem), 0.9): section titles on the homepage (Work, Journey, Writing, Say hello). Deliberately small beside the hero name: the name is the only display-size lettering on the page. Inner-page band titles and About section titles keep their own steps; Journey pillars use about 1.75rem.
+- **Work entries** are set as Title (Archivo 700, mixed case), not lettering, with role and dates in the serif; uppercase tracked labels are kept for nav, scoreboard keys, dates on the sheet, stack lines and links.
 - **Title** (Archivo 700 at normal width, mixed case, 1.5rem to 2rem, 1.25): post titles in lists, school names, prose headings. This is the reading-side heading; it is not painted, so it is not uppercase or expanded.
 - **Body** (Source Serif 4 400, 1.125rem to 1.1875rem, 1.625, max 68ch): all running text. Oldstyle numerals by default.
 - **Voice** (Source Serif 4 italic, clamp to about 1.75rem, 1.375): Greg's own line under the name, page-band intros, the Journey quote.
 - **Label** (Archivo 700, 0.8125rem, 0.16em, uppercase): navigation, scoreboard keys, roles, stack lines, dates, footer links. Labels name a value or an action; they never sit alone above a heading as a lead-in.
 
 ### Named Rules
+**The One Loud Thing Rule.** The hero name is the only display-size lettering on the homepage. Section titles stay at headline size (3rem at most); the page is loud once, then calm.
+
 **The Paint Or Voice Rule.** Expanded heavy caps for anything painted on a surface (names, section titles, scores); the serif for anything spoken or read. Do not set paragraphs in Archivo or titles in the serif.
 
 **The Tabular Score Rule.** Years, dates and scoreboard values switch to tabular lining numerals; everywhere else, numerals stay oldstyle.
@@ -169,7 +172,7 @@ A small venue palette: two field colors, one paint, one board and one amber that
 
 One centered column capped at 82rem (the court width), with 16px side gutters on phones and 32px from small screens up; the surround shows in the gutters. Sections are stacked full-width panels separated by 96px (128px from md) of open surround. Panels pad 20px to 64px horizontally and 56px to 80px vertically as the viewport grows.
 
-The hero court is landscape (78:36) from lg and turns portrait below, so the court still reads as a court on a phone: name in the far back court, portrait in the near one, net and service boxes open between them. The scoreboard is two columns on phones and four from lg.
+The hero court is landscape (78:36) from lg and turns portrait below, so the court still reads as a court on a phone: a real 36:78 court on phones (taller 36:56 on tablets), the name centred in the far half and the portrait in the near one, with the service lines stopping at their lettering boxes and the net in the first screen. The hero leaves 32px of surround above the court for the rally board. The scoreboard is two columns on phones and four from lg.
 
 Lists inside panels are ruled tables, not cards: a fixed left column (7rem to 8rem) for the year or date, then title and body, with a heavy 4px top rule and hairline row dividers. Reading text never exceeds 68ch.
 
@@ -182,7 +185,7 @@ This system has no shadows. Depth is the order of painted materials: the surroun
 
 ## Shapes
 
-Square everywhere (0px). Courts, panels, scoreboard cells, the portrait frame, cover images, code blocks and focus outlines all have hard corners. White strokes are fixed: 4px for court lines and nav underlines, 6px for court frames, the net and the portrait frame, 4px for the top rule of a list on the sheet. Lines stop where a lettering box (a court-blue patch behind the type) sits, so the paint never runs through a word.
+Square everywhere (0px), with one exception: the ball is round, because it is a ball. Courts, panels, scoreboard cells, the portrait frame, cover images, code blocks and focus outlines all have hard corners. White strokes are fixed: 4px for court lines and nav underlines, 6px for court frames, the net and the portrait frame, 4px for the top rule of a list on the sheet. Lines stop where a lettering box (a court-blue patch behind the type) sits, so the paint never runs through a word.
 
 ### Named Rules
 **The Lettering Box Rule.** Type placed over court lines sits on its own court-blue patch with a few pixels of padding, and the lines stop at its edge. Never let a line cross lettering, and never lift type off the court with a shadow.
@@ -195,11 +198,14 @@ Painted labels on the surround. The wordmark is display lettering at about 1.375
 ### Scoreboard
 The signature component. A board-black strip under the hero court, split into cells by board-rule lines. Each cell is a link: a white label on the left, an amber lettering value on the right with tabular numerals. Values flap over like a flip board on load (staggered 140ms per cell) and flap again on hover and keyboard focus; the cell washes with board-rule at 60% on hover.
 
+### Rally (hero court)
+After the lines paint and the scoreboard flaps, Greg serves an amber ball from his baseline (the portrait's half) into the visitor's half (the name's half). The visitor aims a return by clicking or tapping his half: in the singles court is "In" and he returns it, the alleys are "Out" (a court-mist Hawk-Eye mark stays where it bounced), and their own half is "Net". After a miss the ball leaves and he serves again. The ball travels on transform only; its height is shown by scale (1 → 1.6 → 1), never a shadow, and it rests only off the lettering boxes and portrait (`data-rally-avoid`). An umpire's board stands on the surround above the court frame beside the net post: board black, "Rally" label, amber two-digit count, and the call in board-mist; values flap in. The ball is a button, so keyboard users can play a good shot. Under reduced motion the ball moves without travel and the calls still change.
+
 ### Court Frame
 A court-blue field inside a 6px white frame with 4px painted lines at real court proportions, plus a 6px net that runs past the sidelines. Used for the hero, the Journey court (the four pillars in the four service boxes, separated by 4px gaps that show white ground), and as the Page Band on inner pages (one baseline, one service line, title in a lettering box). Lines paint in once on load.
 
 ### Panels
-- **Results board** (board): Work. White lettering titles, amber years in a fixed left column, board-mist roles and stack labels, white body at 90%, amber external links with a square-capped arrow that underline on hover.
+- **Results board** (board): Work on the homepage, one line per role: amber year, white title-style name, board-mist role and dates in the serif, amber link with a square-capped arrow. Rows share one subgrid so the columns align. The full entries (body, stack) are on About.
 - **Scoresheet** (line, with ink text): Writing, About, post lists, post bodies. Court-blue dates and links, title-style headings that underline in court blue (3px, 6px offset) on hover, ink-soft body.
 
 ### Links
@@ -208,10 +214,10 @@ A court-blue field inside a 6px white frame with 4px painted lines at real court
 - **Email in the footer:** large serif in white with a 4px amber underline, turning amber on hover.
 
 ### Focus and Selection
-Every focusable element gets a 3px solid amber outline at 3px offset. Text selection is amber with ink text. The skip link is an amber label block with ink text, fixed top-left when focused.
+Every focusable element gets a 3px solid amber outline at 3px offset; on the white sheet the outline turns court blue, because amber is about 1.7:1 on white. Text selection is amber with ink text. The skip link is an amber label block with ink text, fixed top-left when focused.
 
 ### Motion
-Lines paint in with a scale transform (900ms, cubic-bezier(0.16, 1, 0.3, 1)) once on load; scoreboard values flap (520ms, same curve). Color changes run 200ms. Under reduced motion every animation and transition collapses to 1ms, so the court arrives already painted.
+Lines paint in with a scale transform (900ms, cubic-bezier(0.16, 1, 0.3, 1)) once on load; scoreboard values flap in from a blank tile (520ms, same curve: the face drops from its top edge, so the load reveals the value) and flap over again on hover and focus. The rally ball travels on cubic-bezier(0.3, 0.05, 0.25, 1) for 460 to 1000ms by distance, then skids 34px on the settle curve. Color changes run 200ms. Under reduced motion every animation and transition collapses to 1ms, so the court arrives already painted.
 
 ## Do's and Don'ts
 
@@ -222,7 +228,7 @@ Lines paint in with a scale transform (900ms, cubic-bezier(0.16, 1, 0.3, 1)) onc
 - **Do** set names, section titles and scores in Archivo 800 at wdth 125, uppercase, line-height 0.9; set everything read or spoken in Source Serif 4.
 - **Do** use ball amber only for scores, years, links on dark grounds, focus and selection.
 - **Do** present lists as ruled tables with a fixed year or date column, not as cards.
-- **Do** keep motion to paint-in and flap, and make it static under reduced motion.
+- **Do** keep motion to paint-in, flap and the rally ball, and make it static under reduced motion.
 
 ### Don't:
 - **Don't** round any corner, including images and code blocks (0px everywhere).

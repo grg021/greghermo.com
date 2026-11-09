@@ -1,6 +1,8 @@
 import { personSchema } from '../lib/schema'
 import Layout from '../components/layout'
 import PageBand from '../components/page-band'
+import WorkLink from '../components/work-link'
+import { STACK_NOTE, WORK } from '../lib/work'
 
 const SECTIONS = [
   {
@@ -114,6 +116,35 @@ export default function About() {
               </div>
             </section>
           ))}
+
+          <section id="work" aria-labelledby="about-work" className="scroll-mt-6 border-b border-ink/15 py-12 md:py-16 lg:pl-[16rem]">
+            <div>
+              <h2 id="about-work" className="lettering text-[clamp(1.75rem,3.4vw,2.75rem)]">
+                Work
+              </h2>
+              <p className="mt-6 max-w-measure text-lg leading-relaxed text-ink-soft">
+                Since 2008 I’ve built useful, maintainable web apps, and lately businesses that bring value. {STACK_NOTE}
+              </p>
+              <ol className="mt-8 border-t-4 border-ink">
+                {WORK.map((w) => (
+                  <li key={w.name} className="grid gap-x-6 gap-y-1 border-b border-ink/15 py-6 sm:grid-cols-[6rem_minmax(0,1fr)]">
+                    <p className="lettering tabular pt-1 text-xl text-court">{w.year}</p>
+                    <div>
+                      <h3 className="font-display text-xl font-bold leading-snug">{w.name}</h3>
+                      <p className="mt-1 text-base text-ink-soft">
+                        {w.role} <span className="tabular block whitespace-nowrap sm:inline"><span className="hidden sm:inline">· </span>{w.period}</span>
+                      </p>
+                      <p className="mt-3 max-w-measure text-lg leading-relaxed text-ink-soft">{w.body}</p>
+                      <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2">
+                        <p className="label text-court">{w.stack}</p>
+                        <WorkLink link={w.link} ground="sheet" />
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
 
           <section aria-labelledby="about-education" className="py-12 md:py-16 lg:pl-[16rem]">
             <div>

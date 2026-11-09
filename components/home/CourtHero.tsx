@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { CSSProperties } from 'react'
+import { CSSProperties, useRef } from 'react'
+import Rally from './Rally'
 
 /*
  * A hard court seen from above. Lines are positioned from real court
@@ -43,9 +44,9 @@ function PortraitLines() {
     <div className="pointer-events-none absolute inset-0 lg:hidden">
       <Line axis="y" delay={0} className="inset-y-0 left-[12.5%]" />
       <Line axis="y" delay={60} className="inset-y-0 right-[12.5%]" />
-      <Line axis="x" delay={160} className="left-[12.5%] right-[12.5%] top-[31%]" />
-      <Line axis="x" delay={220} className="bottom-[31%] left-[12.5%] right-[12.5%]" />
-      <Line axis="y" delay={320} className="bottom-[31%] left-[calc(50%-2px)] top-[31%]" />
+      <Line axis="x" delay={160} className="left-[12.5%] right-[12.5%] top-[23.1%] md:top-[31%]" />
+      <Line axis="x" delay={220} className="bottom-[23.1%] left-[12.5%] right-[12.5%] md:bottom-[31%]" />
+      <Line axis="y" delay={320} className="bottom-[23.1%] left-[calc(50%-2px)] top-[23.1%] md:bottom-[31%] md:top-[31%]" />
       <Line axis="y" delay={380} className="left-[calc(50%-2px)] top-0 h-5" />
       <Line axis="y" delay={380} className="bottom-0 left-[calc(50%-2px)] h-5" />
       <Line axis="x" delay={440} className="-left-3 -right-3 top-[calc(50%-3px)] h-[6px] bg-line/90" />
@@ -77,8 +78,8 @@ function Scoreboard() {
             >
               <span className="label">{label}</span>
               <span className="inline-block [perspective:600px]">
-                <span style={{ animationDelay: `${1000 + i * 140}ms` }} className="inline-block animate-flap">
-                  <span className="lettering tabular inline-block whitespace-nowrap text-[0.95rem] text-ball group-hover:animate-flap-again group-focus-visible:animate-flap-again sm:text-lg">
+                <span style={{ animationDelay: `${1000 + i * 140}ms` }} className="inline-block origin-top animate-flap-in">
+                  <span className="lettering tabular inline-block whitespace-nowrap text-[0.95rem] text-ball group-hover:animate-flap-again group-focus-visible:animate-flap-again sm:text-lg lg:text-[0.875rem] xl:text-lg">
                     {value}
                   </span>
                 </span>
@@ -92,19 +93,21 @@ function Scoreboard() {
 }
 
 export default function CourtHero() {
+  const courtRef = useRef<HTMLDivElement>(null)
   return (
-    <section aria-labelledby="hero-name" className="px-4 sm:px-8">
+    <section aria-labelledby="hero-name" className="px-4 pt-8 sm:px-8">
       <div className="mx-auto max-w-court">
-        <div className="relative aspect-[36/96] border-[6px] border-line bg-court md:aspect-[36/56] lg:aspect-[78/36] lg:min-h-[30rem]">
+        <div ref={courtRef} className="relative aspect-[36/78] border-[6px] border-line bg-court md:aspect-[36/56] lg:aspect-[78/36]">
           <PortraitLines />
           <LandscapeLines />
 
-          {/* Phones/tablets: name in the far back court, portrait in the near one, service boxes and net left open.
+          {/* Phones and tablets: name centred in the far half, portrait in the near one, the service lines stopping
+              at their lettering boxes (phones get a real 36:78 court).
               Desktop: name in the left half, portrait in the right service box. */}
-          <div className="relative grid h-full grid-rows-[31%_1fr_31%] lg:grid-cols-2 lg:grid-rows-1">
-            <div className="flex flex-col items-start justify-center px-[16%] lg:px-[6%]">
+          <div className="relative grid h-full grid-rows-2 lg:grid-cols-2 lg:grid-rows-1">
+            <div className="flex flex-col items-start justify-center px-[16%] lg:pl-[6%] lg:pr-[4%]">
               {/* One painted lettering panel: the lines stop once at its edge. */}
-              <div className="w-fit bg-court px-2 py-1">
+              <div data-rally-avoid className="relative z-[15] w-fit cursor-auto bg-court px-2 py-1">
                 <h1 id="hero-name" className="lettering text-[clamp(2.25rem,11vw,6rem)] lg:text-[clamp(4.5rem,8.4vw,8.25rem)]">
                   Greg
                   <br />
@@ -116,10 +119,8 @@ export default function CourtHero() {
               </div>
             </div>
 
-            <div aria-hidden="true" className="lg:hidden" />
-
             <div className="flex flex-col items-center justify-center px-[16%] lg:items-end lg:px-0 lg:pr-[9%]">
-              <figure className="bg-court p-2">
+              <figure data-rally-avoid className="relative z-[15] cursor-auto bg-court p-2">
                 <div className="relative mx-auto aspect-[400/384] w-[min(14rem,50vw)] flex-none md:w-[min(16rem,34vw)] lg:mx-0 border-[6px] border-line lg:w-[clamp(15rem,20vw,19rem)]">
                   <Image
                     src="/assets/img/greghermo_profilepic.JPG"
@@ -137,6 +138,7 @@ export default function CourtHero() {
               </figure>
             </div>
           </div>
+          <Rally courtRef={courtRef} />
         </div>
         <Scoreboard />
       </div>

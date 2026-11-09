@@ -31,6 +31,8 @@
   --animate-paint-y: paintY 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-flap: flap 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
   /* Same flap under a separate name so hover can replay it after the load flap. */
+  /* A new face drops in from the top edge: the board turning over to a value. */
+  --animate-flap-in: flapIn 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-flap-again: flapAgain 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @keyframes paintX {
@@ -46,6 +48,10 @@
     45% { transform: rotateX(-90deg); }
     55% { transform: rotateX(90deg); }
     100% { transform: rotateX(0deg); }
+  }
+  @keyframes flapIn {
+    from { transform: rotateX(-90deg); }
+    to { transform: rotateX(0deg); }
   }
   @keyframes flapAgain {
     0% { transform: rotateX(0deg); }
@@ -85,6 +91,11 @@
   :focus-visible {
     outline: 3px solid var(--color-ball);
     outline-offset: 3px;
+  }
+
+  /* Amber is about 1.7:1 on the white sheet; court blue is about 6.9:1 there. */
+  .bg-line.text-ink :focus-visible {
+    outline-color: var(--color-court);
   }
 
   a {

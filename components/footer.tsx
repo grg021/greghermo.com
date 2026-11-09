@@ -5,13 +5,13 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-surround text-line">
       <div className="mx-auto max-w-court px-4 pb-12 pt-24 sm:px-8 md:pt-32">
-        <h2 className="lettering text-[clamp(3rem,9vw,7.5rem)]">Say hello.</h2>
-        <p className="mt-8 max-w-measure text-xl leading-relaxed text-line md:text-2xl">
+        <h2 className="lettering text-[clamp(2rem,4vw,3rem)]">Say hello.</h2>
+        <p className="mt-6 max-w-measure text-lg leading-relaxed text-line md:text-xl">
           Whether it’s about code, coffee, tennis or faith, I’d be glad to hear from you.
         </p>
         <a
           href={`mailto:${LINKS.email}`}
-          className="mt-10 inline-block break-all font-serif text-[clamp(1.5rem,4vw,2.75rem)] text-line underline decoration-ball decoration-4 underline-offset-8 transition-colors duration-200 hover:text-ball"
+          className="mt-8 inline-block break-words font-serif text-[clamp(1.375rem,3vw,2rem)] text-line underline decoration-ball decoration-[3px] underline-offset-[6px] transition-colors duration-200 hover:text-ball"
         >
           {LINKS.email}
         </a>
