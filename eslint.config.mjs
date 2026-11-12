@@ -21,6 +21,9 @@ export default defineConfig([
       '@typescript-eslint/no-unsafe-assignment': 'warn',
       '@typescript-eslint/no-unsafe-call': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'warn',
+      // Page-to-page links are plain <a> on purpose: a full load reruns the design kit's scripts
+      // (public/kit), which bind to the DOM once.
+      '@next/next/no-html-link-for-pages': 'off',
     },
   },
   globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', '**/*.js', '**/*.mjs']),

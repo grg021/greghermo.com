@@ -50,3 +50,10 @@ next-env.d.ts
 # Impeccable local runtime state
 /.impeccable/decision/
 /.impeccable/hook.cache.json
+
+# tasteskill checker output
+.taste-skill/chrome-*
+shots/
+.taste-skill/gate/
+.taste-skill/gate.json
+.taste-skill/build.done.json

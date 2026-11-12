@@ -1,30 +1,84 @@
-import Link from 'next/link'
 import { LINKS } from '../lib/constants'
+import { MAIN_ACTION } from './header'
+
+/* footer.closing: the dealt close-type (row 1) and footer-columns (row 2) in one last screen. */
+
+const COLUMNS = [
+  {
+    title: 'Site',
+    links: [
+      { href: '/#work', label: 'Work' },
+      { href: '/#journey', label: 'Journey' },
+      { href: '/posts', label: 'Writing' },
+      { href: '/about', label: 'About' },
+    ],
+  },
+  {
+    title: 'Projects',
+    links: [
+      { href: '/ehealth', label: 'eHealth projects' },
+      { href: 'https://contactout.com', label: 'ContactOut' },
+      { href: 'https://www.boscoffeecalamba.com/', label: 'Bo’s Coffee Calamba' },
+    ],
+  },
+  {
+    title: 'Elsewhere',
+    links: [
+      { href: LINKS.linkedin, label: 'LinkedIn' },
+      { href: LINKS.github, label: 'GitHub' },
+      { href: LINKS.twitter, label: 'Twitter' },
+      { href: '/feed.xml', label: 'RSS feed' },
+    ],
+  },
+]
+
+const isExternal = (href: string) => href.startsWith('http')
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-surround text-line">
-      <div className="mx-auto max-w-court px-4 pb-12 pt-24 sm:px-8 md:pt-32">
-        <h2 className="lettering text-[clamp(2rem,4vw,3rem)]">Say hello.</h2>
-        <p className="mt-6 max-w-measure text-lg leading-relaxed text-line md:text-xl">
-          Whether it’s about code, coffee, tennis or faith, I’d be glad to hear from you.
-        </p>
-        <a
-          href={`mailto:${LINKS.email}`}
-          className="mt-8 inline-block break-words font-serif text-[clamp(1.375rem,3vw,2rem)] text-line underline decoration-ball decoration-[3px] underline-offset-[6px] transition-colors duration-200 hover:text-ball"
-        >
-          {LINKS.email}
-        </a>
-
-        <div className="mt-24 flex flex-col gap-8 border-t-4 border-line pt-8 md:flex-row md:items-center md:justify-between">
-          <ul className="flex flex-wrap gap-x-8 gap-y-3">
-            <li><a className="label text-line underline-offset-4 hover:underline" href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a className="label text-line underline-offset-4 hover:underline" href={LINKS.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a className="label text-line underline-offset-4 hover:underline" href={LINKS.twitter} target="_blank" rel="noopener noreferrer">Twitter</a></li>
-            <li><Link className="label text-line underline-offset-4 hover:underline" href="/posts">Writing</Link></li>
-            <li><Link className="label text-line underline-offset-4 hover:underline" href="/about">About</Link></li>
-          </ul>
-          <p className="label tabular text-line">© {new Date().getFullYear()} Greg Hermo</p>
+    <footer className="footer closing" id="contact" aria-labelledby="close-h">
+      <div className="wrap">
+        <div className="closing__cta close--type">
+          <div className="section-head">
+            <h2 id="close-h">Write to me about code, coffee or tennis</h2>
+            <p>Questions about Laravel, a project, the coffee shop or faith: I’d be glad to hear from you.</p>
+          </div>
+          <a className="btn btn--primary btn--xl btn--wide" href={MAIN_ACTION.href}>
+            {MAIN_ACTION.label}
+            <svg className="m-arrow" viewBox="0 0 12 12" aria-hidden="true">
+              <path className="m-arrow__stem" d="M1 6h8" />
+              <path className="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5" />
+            </svg>
+          </a>
+        </div>
+        <div className="closing__links">
+          <div className="grid">
+            <div className="span-6 stack-4">
+              <a className="nav__logo" href="/">
+                <span className="mark" data-mark="ring" aria-hidden="true" />
+                Greg Hermo
+              </a>
+              <p className="footer__lede">Software engineer, coffee shop co-founder and tennis player in Laguna, Philippines.</p>
+            </div>
+            {COLUMNS.map((col) => (
+              <div className="span-2 footer__col" key={col.title}>
+                <h3>{col.title}</h3>
+                <ul>
+                  {col.links.map((l) => (
+                    <li key={l.href}>
+                      <a href={l.href} {...(isExternal(l.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="footer__legal">
+            <span>© {new Date().getFullYear()} Greg Hermo</span>
+            <span>Product names and logos are trademarks of their owners</span>
+          </div>
         </div>
       </div>
     </footer>

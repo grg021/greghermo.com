@@ -1,46 +1,39 @@
-import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { Post } from '../../lib/types'
+
+/* Writing: the latest posts as open cards, each with its own cover photograph. */
 
 type Props = { posts: Post[] }
 
 export default function Writing({ posts }: Props) {
   return (
-    <section id="writing" aria-labelledby="writing-title" className="scroll-mt-6 px-4 pt-24 sm:px-8 md:pt-32">
-      <div className="mx-auto max-w-court bg-line px-5 py-12 text-ink sm:px-10 md:py-16 lg:px-16">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 id="writing-title" className="lettering text-[clamp(2rem,4vw,3rem)]">
-            Writing
-          </h2>
-          <Link href="/posts" className="label text-court underline decoration-2 underline-offset-4 hover:text-ink">
-            All posts
-          </Link>
+    <section className="section" id="writing" aria-labelledby="writing-h" style={{ ['--hm' as string]: 2 }}>
+      <div className="wrap">
+        <div className="section-head section-head--row">
+          <div>
+            <h2 id="writing-h">
+              Posts on levelling up as a developer.
+            </h2>
+          </div>
+          <a className="link" href="/posts">
+            See all posts
+          </a>
         </div>
-
-        {posts.length === 0 ? (
-          <p className="mt-12 text-lg text-ink-soft">Nothing posted yet. The first one is on its way.</p>
-        ) : (
-          <ol className="mt-10 border-t-4 border-ink md:mt-12">
-            {posts.map((post) => (
-              <li key={post.slug} className="border-b border-ink/15">
-                <Link
-                  href={`/posts/${post.slug}`}
-                  className="group grid gap-x-10 gap-y-2 py-8 md:grid-cols-[8rem_minmax(0,1fr)] md:py-10"
-                >
-                  <time dateTime={post.date} className="label tabular pt-1.5 text-court">
-                    {format(parseISO(post.date), 'MMM yyyy')}
-                  </time>
-                  <div>
-                    <h3 className="font-display text-2xl font-bold leading-tight decoration-court decoration-[3px] underline-offset-[6px] group-hover:underline md:text-[1.75rem]">
-                      {post.title}
-                    </h3>
-                    <p className="mt-3 max-w-measure text-lg leading-relaxed text-ink-soft">{post.excerpt}</p>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        )}
+        <div className="grid">
+          {posts.slice(0, 2).map((post) => (
+            <a className="card card--open span-6" href={`/posts/${post.slug}`} key={post.slug}>
+              <div className="panel panel--top">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="frame__img" src={post.coverImage} alt="" loading="lazy" data-source="client" data-subject="post cover" />
+              </div>
+              <p className="t-small muted">
+                <time dateTime={post.date}>{format(parseISO(post.date), 'MMMM yyyy')}</time>
+              </p>
+              <h3>{post.title}</h3>
+              <p>{post.excerpt}</p>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   )

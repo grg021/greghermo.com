@@ -5,20 +5,12 @@ type Props = {
   children?: ReactNode
 }
 
-/* A strip of court for inner pages: baseline frame, one singles line, title in a lettering box. */
+/* The head of an inner page: the title on the left line under the fixed nav, one line under it. */
 export default function PageBand({ title, children }: Props) {
   return (
-    <div className="px-4 sm:px-8">
-      <div className="relative mx-auto max-w-court border-[6px] border-line bg-court">
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-[18%] h-1 origin-left animate-paint-x bg-line" />
-        <div aria-hidden="true" className="absolute bottom-0 left-[23.1%] top-0 hidden w-1 origin-top animate-paint-y bg-line [animation-delay:120ms] md:block" />
-        <div className="relative px-5 pb-[14%] pt-12 sm:px-10 md:pb-24 md:pt-16 lg:px-16">
-          <h1 className="lettering block w-fit max-w-full bg-court py-2 pr-3 text-[clamp(2.5rem,8vw,6.5rem)]">
-            {title}
-          </h1>
-          {children && <div className="relative mt-6 max-w-[40ch] bg-court py-1 pr-3">{children}</div>}
-        </div>
-      </div>
+    <div className="wrap page-top pb-12 md:pb-16">
+      <h1 className="display max-w-[18ch] text-[clamp(2.5rem,5.5vw,4.5rem)] text-ink">{title}</h1>
+      {children && <div className="mt-6 max-w-[48ch] text-[1.25rem] leading-normal text-ink">{children}</div>}
     </div>
   )
 }

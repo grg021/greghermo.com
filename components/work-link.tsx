@@ -17,11 +17,11 @@ function ArrowOut() {
   )
 }
 
-/* Amber on the board, court blue on the sheet. */
+/* The accent link; inner pages only use it on the white sheet. */
 export default function WorkLink({ link, ground }: { link: WorkItem['link']; ground: 'board' | 'sheet' }) {
   if (!link) return null
-  const className = `label inline-flex items-center gap-1.5 underline-offset-4 hover:underline ${
-    ground === 'board' ? 'text-ball' : 'text-court hover:text-ink'
+  const className = `meta inline-flex items-center gap-1.5 underline-offset-4 hover:underline ${
+    ground === 'board' ? 'text-night-ink' : 'text-accent hover:text-ink'
   }`
   return link.href.startsWith('/') ? (
     <Link href={link.href} className={className}>

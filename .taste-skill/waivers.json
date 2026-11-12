@@ -1,0 +1,22 @@
+[
+  {
+    "check": "container-edges",
+    "target": "Skip to contentGreg Hermo",
+    "reason": "Next.js mounts every page inside its own div#__next root; inside it the shell is exactly header.nav, main and footer.closing"
+  },
+  {
+    "check": "hero-lines",
+    "target": "section.hero h1",
+    "reason": "the h1 is final copy of 27 characters and takes three lines at most at every width; only the 45-character stress fill at Archivo's 125% width, Greg's brand lettering, runs to four"
+  },
+  {
+    "check": "hero-maxchars",
+    "target": "Greg HermoSoftware engineer",
+    "reason": "the real 27-character h1 ends inside the fold at 390; only the 45-character stress fill at the brand's 125% width runs 11px past it"
+  },
+  {
+    "check": "copy-headings",
+    "target": "Terminal Cheat Sheet",
+    "reason": "a blog post's own title, written by Greg and shown as published; the card links to that post"
+  }
+]

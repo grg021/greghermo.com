@@ -1,46 +1,58 @@
-import Link from 'next/link'
 import { WORK } from '../../lib/work'
-import WorkLink from '../work-link'
 
 /*
- * The club results board, kept to one line per role: year, name, role and dates.
- * The full entries (what each job was, the stack) live on About.
+ * Work: the seven roles as rows on the left; on the right one still hub diagram (diagrams.md, one
+ * a service page, held still) of the tools Greg builds with, in their real logos.
  */
+const STACK = {"layout":"hub","alt":"Greg at the centre of what he builds with. Backend: Laravel, PHP and MySQL. Web: React, Next.js, Vue.js and Tailwind CSS. Mobile: Expo. AI coding: Claude and Cursor. Shipping: Docker.","center":{"label":"Greg"},"spokes":[{"label":"Backend","icon":"ui:server","children":[{"label":"Laravel","icon":"laravel"},{"label":"PHP","icon":"php"},{"label":"MySQL","icon":"mysql"}]},{"label":"Web","icon":"ui:monitor","children":[{"label":"React","icon":"react"},{"label":"Next.js","icon":"nextjs"},{"label":"Vue.js","icon":"vue"},{"label":"Tailwind CSS","icon":"tailwindcss"}]},{"label":"Mobile","icon":"ui:smartphone","children":[{"label":"Expo","icon":"expo"}]},{"label":"AI coding","icon":"ui:bot","children":[{"label":"Claude","icon":"claude"},{"label":"Cursor","icon":"cursor"}]},{"label":"Shipping","icon":"ui:rocket","children":[{"label":"Docker","icon":"docker"}]}],"ground":"none","motion":{"pulse":"none"}}
 
 export default function Work() {
   return (
-    <section id="work" aria-labelledby="work-title" className="scroll-mt-6 px-4 pt-24 sm:px-8 md:pt-32">
-      <div className="mx-auto max-w-court bg-board px-5 py-12 sm:px-10 md:py-16 lg:px-16">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
-          <h2 id="work-title" className="lettering text-[clamp(2rem,4vw,3rem)] text-line">
-            Work
-          </h2>
-          <p className="max-w-[46ch] text-lg leading-relaxed text-board-mist">
-            Since 2008 I’ve built useful, maintainable web apps, and lately businesses that bring value.
-          </p>
+    <section className="section" id="work" aria-labelledby="work-h" style={{ ['--hm' as string]: 2 }}>
+      <div className="wrap">
+        <div className="section-head section-head--row">
+          <div>
+            <h2 id="work-h">
+              Seven teams since 2008. <span className="muted">Lab to coffee shop.</span>
+            </h2>
+          </div>
+          <a className="link" href="/about#work">
+            Read the full history
+          </a>
         </div>
-
-        <ol className="mt-10 border-t border-board-rule md:mt-12 md:grid md:grid-cols-[5rem_minmax(0,1fr)_minmax(0,1.25fr)_auto] md:gap-x-8">
-          {WORK.map((item) => (
-            <li
-              key={item.name}
-              className="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 gap-y-1 border-b border-board-rule py-5 md:col-span-4 md:grid-cols-subgrid md:items-baseline"
-            >
-              <p className="lettering tabular text-lg text-ball">{item.year}</p>
-              <h3 className="font-display text-lg font-bold leading-snug text-line md:text-xl">{item.name}</h3>
-              <p className="col-start-2 text-base leading-snug text-board-mist md:col-start-auto">
-                {item.role} <span className="tabular block whitespace-nowrap md:inline"><span className="hidden md:inline">· </span>{item.period}</span>
-              </p>
-              <div className="col-start-2 whitespace-nowrap pt-1 md:col-start-auto md:pt-0 md:text-right">
-                <WorkLink link={item.link} ground="board" />
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        <Link href="/about#work" className="label mt-8 inline-block text-line underline decoration-2 underline-offset-4 hover:text-ball">
-          Full history
-        </Link>
+        <div className="grid grid--top">
+          <ul className="rows span-6">
+            {WORK.map((w) => (
+              <li key={w.name}>
+                <span className="rows__name">
+                  {w.link?.href.startsWith('/') ? (
+                    <a className="link" href={w.link.href}>
+                      {w.name}
+                    </a>
+                  ) : (
+                    w.name
+                  )}
+                  <small>{w.role}</small>
+                </span>
+                <span className="rows__value">
+                  {w.period.endsWith('present') ? (
+                    <>
+                      {w.period.replace(' – present', ' – ')}
+                      <span className="work__now">now</span>
+                    </>
+                  ) : (
+                    w.period
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div className="span-6 start-7">
+            <div className="panel work__stack" data-icon-base="/kit/icons/">
+              <div className="dg" data-diagram={JSON.stringify(STACK)} />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

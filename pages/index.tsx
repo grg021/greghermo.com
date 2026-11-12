@@ -1,7 +1,6 @@
 import { personSchema, blogSchema } from '../lib/schema'
-import { AUTHOR_NAME } from '../lib/constants'
 import Layout from '../components/layout'
-import CourtHero from '../components/home/CourtHero'
+import Hero from '../components/home/Hero'
 import Work from '../components/home/Work'
 import Journey from '../components/home/Journey'
 import Writing from '../components/home/Writing'
@@ -14,8 +13,17 @@ interface Props {
 
 export default function Index({ allPosts }: Props) {
   return (
-    <Layout meta={{ title: AUTHOR_NAME, path: '/', type: 'profile', jsonLd: [personSchema, blogSchema] }}>
-      <CourtHero />
+    <Layout
+      meta={{
+        title: 'Greg Hermo: software engineer in Laguna, Philippines',
+        description:
+          'Greg Hermo builds Laravel and React apps at ContactOut, health information systems with Ateneo, and runs Bo’s Coffee Calamba with his wife.',
+        path: '/',
+        type: 'profile',
+        jsonLd: [personSchema, blogSchema],
+      }}
+    >
+      <Hero />
       <Work />
       <Journey />
       <Writing posts={allPosts} />
@@ -24,7 +32,7 @@ export default function Index({ allPosts }: Props) {
 }
 
 export function getStaticProps() {
-  const allPosts = getAllPosts(['title', 'date', 'slug', 'excerpt'], 5)
+  const allPosts = getAllPosts(['title', 'date', 'slug', 'excerpt', 'coverImage'], 2)
 
   return {
     props: { allPosts },

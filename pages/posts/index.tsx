@@ -21,31 +21,31 @@ export default function Posts({ allPosts }: Props) {
       }}>
 
       <PageBand title="Writing">
-        <p className="font-serif text-[clamp(1.25rem,2.6vw,1.75rem)] italic leading-snug">
+        <p className="text-[clamp(1.25rem,2.6vw,1.75rem)] leading-snug">
           Notes on building, learning and growing as a software developer.
         </p>
       </PageBand>
 
-      <div className="px-4 sm:px-8">
-        <div className="mx-auto max-w-court bg-line px-5 pb-16 pt-4 text-ink sm:px-10 md:pb-24 lg:px-16">
+      <div className="wrap">
+        <div className="w-full bg-sheet rounded-[20px] px-5 pb-16 pt-4 text-ink sm:px-10 md:pb-24 lg:px-16">
           {allPosts.length === 0 ? (
-            <p className="py-16 text-lg text-ink-soft">Nothing posted yet. The first one is on its way.</p>
+            <p className="py-16 text-lg text-muted">Nothing posted yet. The first one is on its way.</p>
           ) : (
             <ol>
               {allPosts.map((post) => (
-                <li key={post.slug} className="border-b border-ink/15">
+                <li key={post.slug} className="border-b border-rule">
                   <Link
                     href={`/posts/${post.slug}`}
-                    className="group grid gap-x-10 gap-y-2 py-10 md:grid-cols-[8rem_minmax(0,1fr)] md:py-12"
+                    className="group [display:grid] gap-x-10 gap-y-2 py-10 md:grid-cols-[8rem_minmax(0,1fr)] md:py-12"
                   >
-                    <time dateTime={post.date} className="label tabular pt-1.5 text-court">
+                    <time dateTime={post.date} className="meta tabular pt-1.5 text-accent">
                       {format(parseISO(post.date), 'MMM d, yyyy')}
                     </time>
                     <div>
-                      <h2 className="font-display text-2xl font-bold leading-tight decoration-court decoration-[3px] underline-offset-[6px] group-hover:underline md:text-[2rem]">
+                      <h2 className="font-display text-2xl font-medium leading-tight decoration-accent decoration-[3px] underline-offset-[6px] group-hover:underline md:text-[2rem]">
                         {post.title}
                       </h2>
-                      <p className="mt-3 max-w-measure text-lg leading-relaxed text-ink-soft">{post.excerpt}</p>
+                      <p className="mt-3 max-w-measure text-lg leading-relaxed text-muted">{post.excerpt}</p>
                     </div>
                   </Link>
                 </li>
