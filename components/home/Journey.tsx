@@ -17,7 +17,6 @@ export default function Journey() {
       id="journey"
       data-moment="word-highlight"
       aria-labelledby="journey-h"
-      style={{ ['--hm' as string]: 2 }}
     >
       <div className="wrap">
         <h2 id="journey-h" className="t-label">

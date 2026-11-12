@@ -8,7 +8,7 @@ const STACK = {"layout":"hub","alt":"Greg at the centre of what he builds with. 
 
 export default function Work() {
   return (
-    <section className="section" id="work" aria-labelledby="work-h" style={{ ['--hm' as string]: 2 }}>
+    <section className="section" id="work" aria-labelledby="work-h">
       <div className="wrap">
         <div className="section-head section-head--row">
           <div>

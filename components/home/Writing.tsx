@@ -7,7 +7,7 @@ type Props = { posts: Post[] }
 
 export default function Writing({ posts }: Props) {
   return (
-    <section className="section" id="writing" aria-labelledby="writing-h" style={{ ['--hm' as string]: 2 }}>
+    <section className="section" id="writing" aria-labelledby="writing-h">
       <div className="wrap">
         <div className="section-head section-head--row">
           <div>
