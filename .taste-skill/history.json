@@ -1,0 +1,20 @@
+{
+ "palettes": [
+  "cool-grey-cobalt"
+ ],
+ "types": [
+  "rethink"
+ ],
+ "dealt": [
+  "rethink",
+  "lora",
+  "source-serif"
+ ],
+ "moments": [
+  {
+   "id": "word-highlight",
+   "at": "2026-11-12T07:28:10.288Z",
+   "seed": "b7351747"
+  }
+ ]
+}

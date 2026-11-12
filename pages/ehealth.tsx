@@ -102,45 +102,45 @@ export default function EHealth() {
       }}
     >
       <PageBand title={<span className="normal-case">eHealth</span>}>
-        <p className="font-serif text-[clamp(1.25rem,2.6vw,1.75rem)] italic leading-snug">
+        <p className="text-[clamp(1.25rem,2.6vw,1.75rem)] leading-snug">
           Health information systems for the Philippines, since 2011.
         </p>
       </PageBand>
 
-      <div className="px-4 sm:px-8">
-        <div className="mx-auto max-w-court bg-line px-5 pb-16 pt-12 text-ink sm:px-10 md:pb-24 md:pt-16 lg:px-16">
-          <p className="max-w-measure text-lg leading-relaxed text-ink-soft lg:ml-[12rem] lg:pl-10">
+      <div className="wrap">
+        <div className="w-full bg-sheet rounded-[20px] px-5 pb-16 pt-12 text-ink sm:px-10 md:pb-24 md:pt-16 lg:px-16">
+          <p className="max-w-measure text-lg leading-relaxed text-muted lg:ml-[12rem] lg:pl-10">
             Since 2011 I’ve worked with Dr. Dennis B. Batangan, project leader and research scientist at the Institute
             of Philippine Culture (IPC), Ateneo de Manila University, on health information systems for local
             governments: electronic medical records, disease and program registries, and the reporting that connects
             clinics to the Department of Health and PhilHealth. These are the six projects, newest first.
           </p>
 
-          <ol className="mt-12 border-t-4 border-ink md:mt-16">
+          <ol className="mt-12 border-t border-rule md:mt-16">
             {PROJECTS.map((p) => (
               <li
                 key={p.name}
-                className="grid gap-x-10 gap-y-4 border-b border-ink/15 py-12 md:py-16 lg:grid-cols-[12rem_minmax(0,1fr)]"
+                className="[display:grid] gap-x-10 gap-y-4 border-b border-rule py-12 md:py-16 lg:grid-cols-[12rem_minmax(0,1fr)]"
               >
-                <p className="lettering tabular text-3xl text-court md:text-4xl">{p.year}</p>
+                <p className="display tabular text-3xl text-accent md:text-4xl">{p.year}</p>
                 <article aria-labelledby={`project-${p.name}`}>
                   {/* Acronyms keep their own casing (eMHPRe, TaMaHRRiND), so no forced caps here. */}
-                  <h2 id={`project-${p.name}`} className="lettering text-[clamp(1.75rem,3.4vw,2.75rem)] normal-case">
+                  <h2 id={`project-${p.name}`} className="display text-[clamp(1.75rem,3.4vw,2.75rem)] normal-case">
                     {p.name}
                   </h2>
-                  <p className="mt-2 max-w-measure font-serif text-lg italic text-ink-soft">{p.fullName}</p>
-                  <p className="label mt-5 space-y-1.5">
+                  <p className="mt-2 max-w-measure text-lg text-muted">{p.fullName}</p>
+                  <p className="meta mt-5 space-y-1.5">
                     <span className="block text-ink">{p.role}</span>
-                    <span className="tabular block text-court">{p.period}</span>
+                    <span className="tabular block text-accent">{p.period}</span>
                   </p>
-                  <div className="mt-6 max-w-measure space-y-5 text-lg leading-relaxed text-ink-soft">
+                  <div className="mt-6 max-w-measure space-y-5 text-lg leading-relaxed text-muted">
                     {p.body.map((para) => (
                       <p key={para}>{para}</p>
                     ))}
                   </div>
-                  <div className="mt-6 max-w-measure space-y-2 border-t border-ink/15 pt-4">
-                    <p className="label text-ink-soft">{p.partners}</p>
-                    <p className="label text-court">{p.stack}</p>
+                  <div className="mt-6 max-w-measure space-y-2 border-t border-rule pt-4">
+                    <p className="meta text-muted">{p.partners}</p>
+                    <p className="meta text-accent">{p.stack}</p>
                   </div>
                 </article>
               </li>

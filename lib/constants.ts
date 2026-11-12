@@ -10,7 +10,7 @@ export const LINKS = {
     linkedin: 'https://www.linkedin.com/in/greghermo/',
     twitter: 'https://twitter.com/greghermo',
 }
-export const HOME_OG_IMAGE_URL = `${SITE_URL}/assets/img/greghermo_profilepic.JPG`
+export const HOME_OG_IMAGE_URL = `${SITE_URL}/assets/img/greghermo-portrait-1300.jpg`
 export const SOCIAL_LINKS = [
     'https://twitter.com/greghermo',
     'https://github.com/grg021',

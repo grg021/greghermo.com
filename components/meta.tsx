@@ -46,7 +46,7 @@ export default function Meta({
       <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/site.webmanifest" />
-      <meta name="theme-color" content="#3E7350" />
+      <meta name="theme-color" content="#f3f2ec" />
       <link rel="alternate" type="application/rss+xml" title={SITE_NAME} href="/feed.xml" />
 
       {jsonLd && (

@@ -1,145 +1,88 @@
-@import 'tailwindcss';
+@import 'tailwindcss' source(none);
 @plugin '@tailwindcss/typography';
 
-/* Hard Court world: see DESIGN.md and .impeccable/surfaces/pages-index-tsx.md */
+/* The homepage, header and footer are built from the kit's classes (grid, start-7, span-6 ...), some of
+   which share a name with a Tailwind utility; Tailwind scans only the code folders, minus those files. */
+@source "../pages";
+@source "../components";
+@source "../lib";
+@source not "../components/home";
+@source not "../components/header.tsx";
+@source not "../components/footer.tsx";
+
+/*
+ * Tailwind tokens for the inner pages, mapped onto the kit's palette (see DESIGN.md).
+ * The kit itself (public/kit) is loaded in pages/_document.tsx in the `kit` layer.
+ */
 @theme {
-  --color-court: #2D5B88; /* matte hard-court blue */
-  --color-court-deep: #24496E;
-  --color-court-mist: #D7E3EF; /* secondary text on court blue */
+  --color-ground: #f3f2ec;
+  --color-surface: #e7e6de;
+  --color-sheet: #ffffff;
+  --color-ink: #0e1b2c;
+  --color-muted: #55606d;
+  --color-accent: #1f4f8a;
+  --color-rule: rgb(14 27 44 / 0.13);
+  --color-night: #173a63;
+  --color-night-ink: #f3f2ec;
 
-  --color-surround: #3E7350; /* green run-off around the court */
-  --color-surround-deep: #33603F;
-  --color-surround-mist: #DCEADF; /* large text only on the surround */
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-sans: "Archivo", system-ui, sans-serif;
 
-  --color-line: #FFFFFF; /* painted line white */
-
-  --color-board: #14202B; /* club scoreboard */
-  --color-board-rule: #2B3A48;
-  --color-board-mist: #C7D1DA;
-
-  --color-ball: #F2C14E; /* scoreboard amber */
-
-  --color-ink: #14202B;
-  --color-ink-soft: #3E4C59;
-
-  --tracking-label: 0.16em;
-
-  --container-court: 82rem;
-  --container-measure: 68ch;
-
-  --animate-paint-x: paintX 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-paint-y: paintY 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-flap: flap 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  /* Same flap under a separate name so hover can replay it after the load flap. */
-  /* A new face drops in from the top edge: the board turning over to a value. */
-  --animate-flap-in: flapIn 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-flap-again: flapAgain 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
-
-  @keyframes paintX {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-  }
-  @keyframes paintY {
-    from { transform: scaleY(0); }
-    to { transform: scaleY(1); }
-  }
-  @keyframes flap {
-    0% { transform: rotateX(0deg); }
-    45% { transform: rotateX(-90deg); }
-    55% { transform: rotateX(90deg); }
-    100% { transform: rotateX(0deg); }
-  }
-  @keyframes flapIn {
-    from { transform: rotateX(-90deg); }
-    to { transform: rotateX(0deg); }
-  }
-  @keyframes flapAgain {
-    0% { transform: rotateX(0deg); }
-    45% { transform: rotateX(-90deg); }
-    55% { transform: rotateX(90deg); }
-    100% { transform: rotateX(0deg); }
-  }
-}
-
-/* next/font sets --font-archivo and --font-source-serif on the app wrapper (pages/_app.tsx),
-   so these resolve where they are used, not at :root. */
-@theme inline {
-  --font-display: var(--font-archivo), 'Arial Narrow', sans-serif;
-  --font-serif: var(--font-source-serif), Georgia, serif;
+  --container-page: 1280px;
+  --container-measure: 62ch;
 }
 
 @layer base {
-  html {
-    background: var(--color-surround);
-    color: var(--color-line);
-    scroll-behavior: smooth;
-    scrollbar-color: var(--color-court) var(--color-surround-deep);
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-variant-numeric: oldstyle-nums;
-  }
-
   ::selection {
-    background: var(--color-ball);
-    color: var(--color-ink);
+    background: var(--color-accent);
+    color: #fff;
   }
-
-  :focus-visible {
-    outline: 3px solid var(--color-ball);
-    outline-offset: 3px;
-  }
-
-  /* Amber is about 1.7:1 on the white sheet; court blue is about 6.9:1 there. */
-  .bg-line.text-ink :focus-visible {
-    outline-color: var(--color-court);
-  }
-
-  a {
-    text-underline-offset: 0.22em;
-    text-decoration-thickness: 2px;
-  }
-
-  ::-webkit-scrollbar { width: 12px; height: 12px; }
-  ::-webkit-scrollbar-track { background: var(--color-surround-deep); }
-  ::-webkit-scrollbar-thumb { background: var(--color-court); border: 3px solid var(--color-surround-deep); }
 }
 
 @layer components {
-  /* Painted lettering: Archivo at its widest, heavy caps. */
-  .lettering {
-    font-family: var(--font-archivo), 'Arial Narrow', sans-serif;
-    text-transform: uppercase;
-    font-weight: 800;
-    font-stretch: 125%;
-    font-variation-settings: 'wdth' 125;
-    letter-spacing: -0.01em;
-    line-height: 0.9;
+  /* Display lines on inner pages: the kit's headline face, weight and tracking. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    font-stretch: 110%;
   }
 
-  /* Small scoreboard / court labels. */
-  .label {
-    font-family: var(--font-archivo), 'Arial Narrow', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-label);
-    font-weight: 700;
+  /* Small meta labels: 13px at 500, sentence case (system.md, Type). */
+  .meta {
     font-size: 0.8125rem;
-    line-height: 1.2;
+    font-weight: 500;
+    line-height: 1.3;
   }
 
   .tabular {
     font-variant-numeric: tabular-nums lining-nums;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 1ms !important;
-    animation-delay: 0ms !important;
-    transition-duration: 1ms !important;
+  /* Inner pages start under the fixed kit nav. */
+  .page-top {
+    padding-top: calc(var(--nav, 72px) + 48px);
   }
 }
+
+/* Page CSS for the homepage (system.md: only what sits inside a visual, and one --p-h per card group). */
+#journey .journey__pillars { margin-top: var(--s-8, 64px); }
+#journey .journey__pillars .t-card { font-size: var(--t-card); font-weight: 500; }
+#journey .journey__pillars p { color: var(--muted); }
+#writing .card--open > .panel { --p-h: 340px; height: var(--p-h); }
+#writing .card--open > .panel > img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 639px) { #writing .card--open > .panel { --p-h: 200px; } }
+#work .rows__name small { display: block; margin-top: 2px; font-size: var(--t-small); font-weight: 400; color: var(--muted); }
+#work .work__now { display: inline-flex; align-items: center; gap: 6px; margin-left: 4px; color: var(--accent); font-weight: 500; }
+/* An "open" green, like a shop sign: only on the live dots, never text. */
+:root { --live: #1f9d55; }
+#work .work__now::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 3px color-mix(in oklab, var(--live) 18%, transparent); }
+.hero .ly-live::before { background: var(--live); }
+/* The blue band: the moment's strong word and the pillar names take the ball yellow. */
+#journey .journey__pillars .t-card { color: var(--accent); }
+/* Archivo at full width for the one loud line, as on the old court lettering. */
+.hero h1 { font-stretch: 125%; }
+#work .work__stack { height: 560px; }
+@media (max-width: 1023px) { #work .work__stack { height: 420px; } }
+@media (max-width: 639px) { #work .work__stack { height: 340px; } }
