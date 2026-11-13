@@ -30,6 +30,10 @@ When we got home I was tired and my back hurt. Usually I'd just lie down and res
 
 Finally I went to Dr. Leslie at Los Baños Doctors Hospital (LBDH), and he decided to admit me (around September 21). They tried a host of painkillers. None really worked, until finally one did. Then, on September 23, I got an epidural shot. You know, the one you get when you give birth. 😐 I never thought I'd get one.
 
+![Me in a hospital bed at LBDH, hooked up to an IV](/assets/blog/my-back-surgery-story/hospital-bed-lbdh.jpg)
+
+![X-ray from the epidural, September 23, 2022](/assets/blog/my-back-surgery-story/epidural-xray.jpg)
+
 After that I felt better, but I knew I still needed surgery. The plan was a laminotomy discectomy on L5-S1, an open back surgery. I asked my doctors how urgent it was, what the risks were, and how comfortable they were with the surgeon and the procedure.
 
 Honestly, I wasn't really knowledgeable about my options. I would have gone with the open back surgery.
@@ -49,7 +53,13 @@ To be honest, this was God-sent.
 - **October 5:** I was up and walking well.
 - **October 8:** we flew back home.
 
+![The endoscope's view during surgery](/assets/blog/my-back-surgery-story/endoscope-view.jpg)
+
+![A piece of the slipped disc they took out](/assets/blog/my-back-surgery-story/disc-fragment.jpg)
+
 Two weeks earlier I couldn't find a position to sleep in. A day after surgery, I was walking.
+
+![Thumbs up, standing in my hospital room the day after surgery](/assets/blog/my-back-surgery-story/walking-day-after.jpg)
 
 ## Back to an active life
 
