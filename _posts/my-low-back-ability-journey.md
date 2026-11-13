@@ -74,6 +74,14 @@ Around October 14, about three weeks after the injury, I was back on court, one 
 
 Here's the awesome part. After three weeks with no games, my body was fully rested, and I went on a two-week winning streak, with two "barangays" (what we call a tie). I guess rest really does boost performance. Playing on a tired body works against you. Lesson learned, the hard way.
 
+## My take on back pain
+
+Based on what I've researched and experienced, I've come to see low back pain as a symptom. Somewhere there's a muscle weakness, and the low back ends up carrying the load.
+
+In my case, my hunch is weak glutes, and maybe tight hamstrings and groin muscles too. When I got too fatigued, my low back started to compensate for certain movements. For me, I think it was sprinting toward balls that were far away.
+
+Yes, you need to rest until the pain goes away. You may even need painkillers. But long term, it's exercise that keeps back pain away. With a strong core and a strong back, it's a lot harder for it to happen. If you don't exercise, it's only a matter of time before it comes back.
+
 ## Who it's for
 
 I'd recommend it to people who already have some exercise background, and who are a bit younger.
