@@ -11,7 +11,7 @@ ogImage:
 tags: ['back-pain', 'tennis', 'fitness']
 ---
 
-Four years ago I hurt my back so badly that I needed surgery. This September I hurt it again. :(
+Four years ago I hurt my back so badly that I needed surgery ([my back surgery story](/posts/my-back-surgery-story)). This September I hurt it again. :(
 
 _Disclosure: I later built NextSet, partly because of what I describe here._
 

@@ -1,19 +1,18 @@
 ---
 title: 'My back surgery story'
 excerpt: 'Four years ago I had back surgery. Most back problems don''t need it. I was one of the "lucky" few who did.'
-date: '2026-11-14T00:00:00.000Z'
+date: '2026-11-06T00:00:00.000Z'
 author:
   name: Greg Hermo
   picture: '/assets/blog/authors/jj.jpeg'
 tags: ['back-pain', 'faith', 'family']
-draft: true
 ---
 
 > "Bless the Lord, O my soul, and forget not all His benefits." — Psalm 103:2
 
 Four years ago I had back surgery. Most back problems don't need surgery. I was one of the "lucky" few who did.
 
-This is one of the blessings I never want to forget, so I'm writing it down.
+This September I hurt my back again, and it brought me back to this story. It's one of the blessings I never want to forget, so I'm writing it down.
 
 ## How it started
 
@@ -64,7 +63,7 @@ Two years later, on my 37th birthday, I played tennis in the morning and basketb
 
 - **Know your options.** Ask whether a minimally invasive approach fits your case. I almost went with open surgery simply because I didn't know there was another way.
 - **Ask your doctors questions.** How urgent is it? What are the risks? How experienced is the surgeon with this exact procedure?
-- **Surgery fixes the disc, not why it happened.** I stayed active after surgery and kept a healthy lifestyle. Still, this September, playing on a tired body, I hurt my back again. I wrote about that in [My Low Back Ability journey](/posts/my-low-back-ability-journey).
+- **Surgery fixes the disc, not why it happened.** I stayed active after surgery and kept a healthy lifestyle. Still, this September, playing on a tired body, I hurt my back again. More on that in [My Low Back Ability journey](/posts/my-low-back-ability-journey).
 
 ## Thank you
 
