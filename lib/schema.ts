@@ -38,7 +38,7 @@ export function blogPostingSchema(post: Post) {
         dateModified: post.date,
         url,
         mainEntityOfPage: url,
-        image: absoluteUrl(post.ogImage?.url || post.coverImage),
+        image: absoluteUrl(post.ogImage?.url || post.coverImage || HOME_OG_IMAGE_URL),
         author: { '@type': 'Person', '@id': `${SITE_URL}/#person`, name: AUTHOR_NAME, url: SITE_URL },
         isPartOf: { '@id': `${SITE_URL}/posts#blog` },
     }

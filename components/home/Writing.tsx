@@ -22,10 +22,12 @@ export default function Writing({ posts }: Props) {
         <div className="grid">
           {posts.slice(0, 2).map((post) => (
             <a className="card card--open span-6" href={`/posts/${post.slug}`} key={post.slug}>
-              <div className="panel panel--top">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="frame__img" src={post.coverImage} alt="" loading="lazy" data-source="client" data-subject="post cover" />
-              </div>
+              {post.coverImage && (
+                <div className="panel panel--top">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="frame__img" src={post.coverImage} alt="" loading="lazy" data-source="client" data-subject="post cover" />
+                </div>
+              )}
               <p className="t-small muted">
                 <time dateTime={post.date}>{format(parseISO(post.date), 'MMMM yyyy')}</time>
               </p>

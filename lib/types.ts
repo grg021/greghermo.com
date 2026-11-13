@@ -4,7 +4,7 @@ export interface LooseObject {
 
 export interface Post {
     title: string,
-    coverImage: string,
+    coverImage?: string,
     date: string,
     excerpt: string,
     slug: string,
