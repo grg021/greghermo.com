@@ -32,7 +32,11 @@ export default function Post({ post }: Props) {
         <PostTitle>Loading…</PostTitle>
       ) : (
         <article>
-          <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} />
+          <PostHeader
+            title={post.title}
+            coverImage={post.coverImage && !post.content?.includes(post.coverImage) ? post.coverImage : undefined}
+            date={post.date}
+          />
           <PostBody content={post.content} />
         </article>
       )}
