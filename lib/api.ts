@@ -34,10 +34,17 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     return items
 }
 
-export function getAllPosts(fields: string[] = [], limit = 0) {
+// Posts with `draft: true` in their front matter get a page at their URL but stay out of
+// every listing, the feed and the sitemap, so they can be shared for review before publishing.
+export function getAllPosts(fields: string[] = [], limit = 0, { includeDrafts = false } = {}) {
     const slugs = getPostSlugs()
     const posts = slugs
-        .map((slug) => getPostBySlug(slug, fields))
+        .map((slug) => getPostBySlug(slug, includeDrafts ? fields : [...fields, 'draft']))
+        .filter((post) => includeDrafts || !post.draft)
+        .map((post) => {
+            if (!fields.includes('draft')) delete post.draft
+            return post
+        })
         // sort posts by date in descending order
         .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
     return limit ? posts.splice(0, limit) : posts;

@@ -27,6 +27,7 @@ export default function Post({ post }: Props) {
       type: 'article',
       publishedTime: post.date,
       jsonLd: blogPostingSchema(post),
+      noindex: post.draft,
     } : undefined}>
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
@@ -58,6 +59,7 @@ export function getStaticProps({ params }: Params) {
     'excerpt',
     'ogImage',
     'coverImage',
+    'draft',
   ]) as PostObj
   const content = post.content || '';
 
@@ -72,7 +74,7 @@ export function getStaticProps({ params }: Params) {
 }
 
 export function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts(['slug'], 0, { includeDrafts: true })
 
   return {
     paths: posts.map((post) => {

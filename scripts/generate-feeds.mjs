@@ -27,6 +27,7 @@ const posts = fs
     const { data } = matter(fs.readFileSync(path.join(postsDir, f), 'utf8'))
     return { slug: f.replace(/\.md$/, ''), ...data }
   })
+  .filter((p) => !p.draft)
   .sort((a, b) => (a.date > b.date ? -1 : 1))
 
 const latest = posts[0]?.date ?? new Date().toISOString()

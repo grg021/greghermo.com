@@ -11,6 +11,7 @@ export interface Post {
     content?: string,
     ogImage?: OgImage,
     author?: Author,
+    draft?: boolean,
 }
 
 interface OgImage {
