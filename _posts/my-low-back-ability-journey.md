@@ -3,7 +3,6 @@ title: 'My Low Back Ability journey (an honest review)'
 excerpt: 'Four years after back surgery, I hurt my back again. Here is how the Low Back Ability program went for me: what helped, what I missed, and who I think it is for.'
 coverImage: '/assets/blog/my-low-back-ability-journey/lba-october-progress.jpg'
 date: '2026-11-13T00:00:00.000Z'
-draft: true
 author:
   name: Greg Hermo
   picture: '/assets/blog/authors/jj.jpeg'
