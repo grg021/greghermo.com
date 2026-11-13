@@ -67,6 +67,8 @@
 }
 
 /* Page CSS for the homepage (system.md: only what sits inside a visual, and one --p-h per card group). */
+/* Journey is shorter than a screen: size the band to its content instead of the kit's one-screen height. */
+main > #journey { height: auto; min-height: 0; }
 #journey .journey__pillars { margin-top: var(--s-8, 64px); }
 #journey .journey__pillars .t-card { font-size: var(--t-card); font-weight: 500; }
 #journey .journey__pillars p { color: var(--muted); }
