@@ -9,6 +9,7 @@ export interface MetaProps {
   type?: 'website' | 'article' | 'profile'
   publishedTime?: string
   jsonLd?: object | object[]
+  noindex?: boolean
 }
 
 export default function Meta({
@@ -19,6 +20,7 @@ export default function Meta({
   type = 'website',
   publishedTime,
   jsonLd,
+  noindex = false,
 }: MetaProps) {
   const url = absoluteUrl(path)
   const imageUrl = absoluteUrl(image)
@@ -28,6 +30,7 @@ export default function Meta({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
 
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:type" content={type} />
